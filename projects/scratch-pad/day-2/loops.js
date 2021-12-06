@@ -50,12 +50,20 @@ function printArrayValuesInReverse(array) {
 /** 
  * Given an input Object, return an Array containing the Object keys.
  */
+
+/*
+Inputs: An object
+Outputs: Return an array containing object parameter keys
+Constraints: Return keys only
+Edge Cases: N/A
+*/
+
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+
+  // Return an array containing the object keys
+  return Object.keys(object);
+    
   // YOUR CODE ABOVE HERE //
 }
 
