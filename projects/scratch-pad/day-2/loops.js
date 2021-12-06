@@ -27,9 +27,20 @@ function printArrayValues(array) {
  * Given an input Array, loop backwards over the Array and print its values 
  * using console.log().
  */
+
+/*
+Inputs: An array parameter
+Outputs: Prints array values to the console in reverse
+Constraints: Loop backwards
+Edge Cases: N/A
+*/
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
+  // For loop to reverse iterate over the array parameter
+  for (var i = array.length - 1; i > -1; i--) {
+    // Output each array element to the console as they are looped over
+    console.log(array[i]);
+  }
   
   
   
