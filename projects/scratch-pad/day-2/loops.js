@@ -52,7 +52,7 @@ function printArrayValuesInReverse(array) {
  */
 
 /*
-Inputs: An object
+Inputs: An object parameter
 Outputs: Return an array containing object parameter keys
 Constraints: Return keys only
 Edge Cases: N/A
@@ -71,10 +71,21 @@ function getObjectKeys(object) {
  * Given an input Object, loop over the Object and print its keys 
  * using console.log().
  */
+
+/*
+Inputs: An object parameter
+Outputs: Print object parameter keys
+Constraints: Must loop and must output to the console
+Edge Cases: N/A
+*/
+
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  // For in loop to iterate over the keys in the object
+  for (var keys in object) {
+    // Outputs keys to the console 
+    console.log(keys);
+  }
   
   
   // YOUR CODE ABOVE HERE //
