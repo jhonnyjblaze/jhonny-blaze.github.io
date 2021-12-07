@@ -171,18 +171,21 @@ function getObjectLength(object) {
  // Note to self. It feels like something about IOCE clicked in on the prior code challenge.
  // Note to self. I have no clue why this code doesn't work as it works perfectly in replit.
 
-function printObjectValuesInReverse(object) {
+ function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  // Creates empty array literal to collect object parameter's values
-  var array = [];
-  // For in loop access that object values
-  for (var v in object) {
-    // Pushes the object parameter's values into the empty array
-    array.push(object[v]);
+  // Assign object values to a variable named array
+  var arr = Object.values(object);
+  //console.log(array);
+  // Create empty array literal named arr to collect reversed object values
+  var outputArr = [];
+  // For loop to loop backwards over object values
+  for (var i = arr.length - 1; i > -1; i--) {
+    // Push values into arr in reveresed order
+    outputArr.push(arr[i]);
   }
-  // Print the array in reverse to the console
-  console.log(array.reverse());
-  
+    // Output arr to the console
+  console.log(outputArr);
+    
   // YOUR CODE ABOVE HERE //
 }
 
