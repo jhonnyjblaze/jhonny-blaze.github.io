@@ -125,10 +125,11 @@ function getObjectValues(object) {
 
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
+  // For in loop to iterate over the object parameter's values
   for (var values in object) {
+    // Output the object parameter's values to the console
     console.log(object[values]);
   }
-  
   
   
   // YOUR CODE ABOVE HERE //
@@ -137,9 +138,18 @@ function printObjectValues(object) {
 /** 
  * Given an input Object, return the number of key/value pairs stored within that Object.
  */
+
+/*
+ I: An object parameter
+ O: Return the number of key/value pairs stored within that object
+ C: Must return a number
+ E: N/A
+ */
+
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
+  // Return the length of the array containing the number of key/value pairs stored within object parameter 
+  return Object.entries(object).length;
   
   
   
