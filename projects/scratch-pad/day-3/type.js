@@ -36,8 +36,8 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-   
-    
+    // Return false if value is not both true and has a constructor equal to Object
+    return (!!value) && (value.constructor === Object);
     
     // YOUR CODE ABOVE HERE //
 }
