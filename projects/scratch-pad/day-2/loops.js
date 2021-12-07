@@ -169,6 +169,7 @@ function getObjectLength(object) {
  */
 
  // Note to self. It feels like something about IOCE clicked in on the prior code challenge.
+ // Note to self. I have no clue why this code doesn't work as it works perfectly in replit.
 
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
