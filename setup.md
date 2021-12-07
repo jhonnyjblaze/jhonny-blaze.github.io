@@ -1,4 +1,4 @@
-// When you enter gitpod
+// Upon entering Gitpod
 
 /*
 
@@ -10,23 +10,27 @@ Step 5 in the terminal type -- npm install -g opspark
 
 */
 
-/*
-OpSpark Tools
 
-Step 6 in the terminal type -- os install --> install OpSpark projects
+// OpSpark Tools
+
+/*
+
+Step 6 in the terminal type -- os install --> to install OpSpark projects
 Step 7 add github username
 Step 8 add github personal access token
 
-os test - testing if project passes all tests prior to submission
-
-os submit - submit project to greenlight
+os test - to test if project passes all tests prior to project submission
+os submit - to submit project to greenlight to be greenlit
 
 */
 
+
+// Git Commands
+
 /*
-Git Commands
 
 git add -A
 git commit -m "description of changes"
 git push
+
 */
