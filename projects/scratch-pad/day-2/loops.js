@@ -109,16 +109,25 @@ function getObjectValues(object) {
   }
   
   
-  
   // YOUR CODE ABOVE HERE //
 
 /** 
  * Given an input Object, loop over the Object and print its values 
  * using console.log().
  */
+
+/*
+ I: An object parameter
+ O: Prints the object parameter's values to the console
+ C: Loop over the object parameter.
+ E: N/A
+ */
+
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  for (var values in object) {
+    console.log(object[values]);
+  }
   
   
   
