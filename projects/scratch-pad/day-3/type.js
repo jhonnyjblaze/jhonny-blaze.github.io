@@ -52,8 +52,6 @@ function isObject(value) {
     
 
     // YOUR CODE ABOVE HERE //
-}
-
 
 /**
 function isObject(value) {
@@ -73,6 +71,9 @@ function isObject(value) {
 */
 
 
+}
+
+
 /** 
  * Given an input value, return true if is either an Array or an an Object 
  * intended as a collection, false if otherwise.
@@ -86,10 +87,6 @@ function isCollection(value) {
         return true;
     } else return false;
     
-    
-    // YOUR CODE ABOVE HERE //
-}
-
 
 /**
 function isCollection(value) {
@@ -109,6 +106,11 @@ function isCollection(value) {
     // YOUR CODE ABOVE HERE //
 }
 */
+
+
+
+    // YOUR CODE ABOVE HERE //
+}
 
 
 /**
