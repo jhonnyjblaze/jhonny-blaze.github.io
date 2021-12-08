@@ -104,10 +104,26 @@ function createStartsWithFilter(startsWith) {
  * Function that tests whether a given String ends with the endsWith 
  * character.
  */
+
+/**
+I: A single endsWith character
+O: Retrun a Function that test whether a given String ends with the endsWith character
+C: Must return a function inside a function
+E: N/A
+*/
+
+
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    /*
+    return function(string) {
+        return  string[string.length - 1].toLowerCase() === endsWith.toLowerCase();
+    };
+    */
+
+    // Retrun arrow function that test if the give string lowercased ends with the endsWith character lowercased
+    return string => string[string.length -1].toLowerCase() === endsWith.toLowerCase();
     
     
     // YOUR CODE ABOVE HERE //
