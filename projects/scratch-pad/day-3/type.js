@@ -66,7 +66,9 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(Array.isArray(value) || (!!value) && (value.constructor === Object)) {
+        return true;
+    } else return false;
     
     
     
