@@ -36,11 +36,27 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    // Return false if value is not both true and has a constructor equal to Object
+    // Return false if value is (falsy) and returns true if value is both true and has a constructor equal to Object
     return (!!value) && (value.constructor === Object);
     
     // YOUR CODE ABOVE HERE //
 }
+
+/*
+function isObject(value) {
+    // YOUR CODE BELOW HERE //
+    // Arrays will test positive for Object if used with typeof, so use Array.isArray()
+	if(Array.isArray(value)) return false;
+	// null will test positive for Object if used with typeof, so test using strict comparison
+	if(value === null) return false;
+	// Date will test positive for Object if used with typeof, so test using instanceof
+	if(value instanceof Date) return false;
+	// Finally, we're clear to use typeof on any other value
+	if(typeof value === 'object') return true;
+    
+    // YOUR CODE ABOVE HERE //
+}
+*/
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
