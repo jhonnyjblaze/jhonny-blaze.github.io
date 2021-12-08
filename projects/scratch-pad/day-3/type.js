@@ -64,6 +64,7 @@ function isObject(value) {
  * 
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
+/*
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     if(Array.isArray(value) || (!!value) && (value.constructor === Object)) {
@@ -74,6 +75,25 @@ function isCollection(value) {
     
     // YOUR CODE ABOVE HERE //
 }
+*/
+
+function isCollection(value) {
+    // YOUR CODE BELOW HERE //
+    // Arrays will test positive for Object if used with typeof, so use Array.isArray()
+	if(Array.isArray(value)) return true;
+	// null will test positive for Object if used with typeof, so test using strict comparison
+	if(value === null) return false;
+	// Date will test positive for Object if used with typeof, so test using instanceof
+	if(value instanceof Date) return false;
+	// Finally, we're clear to use typeof on any other value
+	if(typeof value === 'object') return true;
+    // If it is anything else return false
+    else return false;
+    
+    
+    // YOUR CODE ABOVE HERE //
+}
+
 
 /**
  * Given an input value, return the type of the value as a String
