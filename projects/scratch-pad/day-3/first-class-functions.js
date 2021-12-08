@@ -11,24 +11,61 @@
  * return a Function that tests whether a given value is greater than the 
  * base.
  */
+
+/**
+I: Base to test against either a String or Number
+O: Retrun a Function that test whether a given value is greater than the Base
+C: Must return a function inside a function
+E: N/A
+*/
+
+
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+
+    /*
+    // Retrun a function with a value parameter
+    return function(value) {
+        // Test whether the given value is greater than the base
+        return value > base;
+    };
+    */
+
+    // Return arrow function that test if given value is greater than the base
+    return value => value > base;
     
     
     // YOUR CODE ABOVE HERE //
 }
+
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
  * return a Function that tests whether a given value is less than the 
  * base.
  */
+
+/**
+I: Base to test against either a String or Number
+O: Retrun a Function that test whether a given value is less than the Base
+C: Must return a function inside a function
+E: N/A
+*/
+
+
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
+    /*
+    // Retrun a function with a value parameter
+    return function(value) {
+        // Test whether the given value is less than the base
+        return value < base;
+    };
+    */
     
+    // Return arrow function that test if given value is less than the base
+    return value => value < base;
     
     
     // YOUR CODE ABOVE HERE //
