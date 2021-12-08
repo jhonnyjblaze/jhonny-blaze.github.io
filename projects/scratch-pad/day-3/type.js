@@ -12,6 +12,8 @@
  * TIP: In JavaScript, how can we decipher if a value is an Array? Can typeof
  * work?
  */
+
+
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     // Check if it is true that value is an array
@@ -21,8 +23,7 @@ function isArray(value) {
       // If not true return false
     } else return false;
     
-    
-    
+        
     // YOUR CODE ABOVE HERE //
 }
 
@@ -36,22 +37,25 @@ function isArray(value) {
  */
 
 
-/*
+/**
 I: Input is some value of some unknown datatype
 O: Return true if value is an Object intended as a collection, otherwise return false
 C: Must be an object intended as a collection
-E: typeof produces false positives i.e. typeof Array ==> 'object'
-
+E: typeof produces false positives i.e. typeof Array -> 'object'
 */
+
+
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     // Return false if value is (falsy) and return true if value is both true and has a constructor equal to Object
     return (!!value) && (value.constructor === Object);
     
+
     // YOUR CODE ABOVE HERE //
 }
 
-/*
+
+/**
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     // Arrays will test positive for Object if used with typeof, so use Array.isArray()
@@ -63,9 +67,11 @@ function isObject(value) {
 	// Finally, we're clear to use typeof on any other value
 	if(typeof value === 'object') return true;
     
+
     // YOUR CODE ABOVE HERE //
 }
 */
+
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
@@ -81,12 +87,11 @@ function isCollection(value) {
     } else return false;
     
     
-    
     // YOUR CODE ABOVE HERE //
 }
 
 
-/*
+/**
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     // Arrays will test positive for Object if used with typeof, so use Array.isArray()
@@ -100,10 +105,11 @@ function isCollection(value) {
     // If it is anything else return false
     else return false;
     
-    
+   
     // YOUR CODE ABOVE HERE //
 }
 */
+
 
 /**
  * Given an input value, return the type of the value as a String
@@ -124,14 +130,31 @@ function isCollection(value) {
  *    typeOf("javascript") -> "string"
  *    typeOf([1,2,3]) -> "array"
  */ 
+
+
+/**
+I: Input is a value of unknown datatype
+O: Output is the datatype of the value as a String
+C: stringify
+E: typeof produces false positives i.e. typeof Array -> 'object'
+*/
+
+
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    /* 
+    Return value type as a string using toString() to both stringify and 
+    to detect the object's class (everything is technically an object) 
+    then slice the results to remove the extra charcters [object ...] 
+    finally make the sliced result lowercased before returning.
+    */
+
+    return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
     
     
     // YOUR CODE ABOVE HERE //
 }
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
