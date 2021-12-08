@@ -76,10 +76,24 @@ function createLessThanFilter(base) {
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
+
+/**
+I: A single startsWith character
+O: Retrun a Function that test whether a given String starts with the startsWith character
+C: Must return a function inside a function
+E: N/A
+*/
+
+
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
+    /*
+    return function(string) {
+        return  string[0].toLowerCase() === startsWith.toLowerCase();
+    };
+    */
+    // Return arrow function that test if the given string lowercased starts with the startsWith character lowercased
+    return string => string[0].toLowerCase() === startsWith.toLowerCase();
     
     
     // YOUR CODE ABOVE HERE //
