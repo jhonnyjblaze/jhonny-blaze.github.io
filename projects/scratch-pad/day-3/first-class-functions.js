@@ -136,11 +136,37 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
+
+/**
+I: Two inputs: one parameter is an Array of Strings and the other is a Function to modify a String
+O: Retrun the Array of the Strings, modified.
+C: Need a collection to collect results
+E: N/A
+*/
+
+
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    /*
+    // Empty Array literal to collect results
+    var output = [];
+    // For loop to iterate over the indexes of the strings array
+	for(var i = 0; i < strings.length; i++) {
+        // Push the modified array elements into the empty output array
+		output.push(modify(strings[i]));
+	}
+    // Return the Array of the Strings, modified
+	return output;
+*/
+    // Empter Array literal to collect results
+    var output = [];
+    // For of loop to iterate over Array of strings
+    for (var element of strings) {
+        // Push the modified array elements into the empty output array
+        output.push(modify(element));
+    }
+    // Return the Array of the Strings, modified
+    return output;
     
     // YOUR CODE ABOVE HERE //
 }
