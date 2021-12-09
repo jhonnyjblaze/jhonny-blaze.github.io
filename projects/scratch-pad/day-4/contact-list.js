@@ -36,6 +36,17 @@
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
 
+    // create variable obj set to empty object
+  var obj = {};
+  // add id key and value
+  obj.id = id;
+  // add nameFirst key and value
+  obj.nameFirst = nameFirst;
+  // add nameLast key and value
+  obj.nameLast = nameLast;
+  // return the contact obj
+  return obj;
+
 } 
 
 
