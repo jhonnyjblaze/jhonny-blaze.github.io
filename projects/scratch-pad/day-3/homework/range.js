@@ -38,11 +38,19 @@ function range(start, end) {
     for (var i = start; i <= end; i++) {
         // push the results into output array
         output.push(i);
-    }    
-    // check if first element > last element
+    }
+    // check if start > end
     if (start <= end) {
         return output;
-    } else return output.reverse();
+    }
+    
+    // Array to collect output
+    var revOutput = [];
+    // for loop to reverse iterate over the range
+    for (var j = start; j >= end; j--) {
+      // push the results into revOutput array
+      revOutput.push(j);
+    } return revOutput;
     
     
     

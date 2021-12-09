@@ -200,10 +200,9 @@ function allStringsPass(strings, test) {
         console.log(tested);
       // If tested array equals false
     } if (tested === false) {
-      return false;
+        return false;
     } else return true;
-    
-    // YOUR CODE ABOVE HERE //
+        // YOUR CODE ABOVE HERE //
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
