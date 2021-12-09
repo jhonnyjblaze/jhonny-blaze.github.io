@@ -191,17 +191,17 @@ E: N/A
 
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    // Empty array to test strings
-    var tested = [];
+    // Empty string to return boolean
+    var tested = '';    
     // For loop to access strings from array
     for (var i = 0; i < strings.length; i++) {
-        // Push tested strings into empty array
-        tested.push(test(strings[i]));
-        console.log(tested);
-      // If tested array equals false
-    } if (tested === false) {
-        return false;
-    } else return true;
+        // Test string equals true tested is true 
+        if(test(strings[i]) === true) {tested = true; }
+        // Else tested is false // If tested is false return tested
+        else { tested = false; return tested; }
+      // Return tested if it has not returned as false
+    } return tested;
+
         // YOUR CODE ABOVE HERE //
 }
 
