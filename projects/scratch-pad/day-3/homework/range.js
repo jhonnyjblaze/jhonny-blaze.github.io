@@ -21,9 +21,28 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
+
+
+/**
+I: Two integer inputs start and end
+O: Retrun an Array with all integers between the two inputs
+C: Must include the two inputs in the array
+E: If start > end return the range in reverse order
+*/
+
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+    // Array to collect ouput
+    var output = [];
+    // for loop to iterate over the range
+    for (var i = start; i <= end; i++) {
+        // push the results into output array
+        output.push(i);
+    }    
+    // check if first element > last element
+    if (start <= end) {
+        return output;
+    } else return output.reverse();
     
     
     

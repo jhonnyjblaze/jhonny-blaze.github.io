@@ -158,7 +158,7 @@ function modifyStrings(strings, modify) {
     // Return the Array of the Strings, modified
 	return output;
 */
-    // Empter Array literal to collect results
+    // Empty Array literal to collect results
     var output = [];
     // For of loop to iterate over Array of strings
     for (var element of strings) {
@@ -180,15 +180,32 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
+
+/**
+I: Two inputs: one parameter is an Array of Strings and the other is a Function to test the String
+O: Retrun Boolean
+C: Return true only if ALL Strings pass the test
+E: N/A
+*/
+
+/*
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    var tested = [];
+    for (var i = 0; i < strings.length; i++) {
+        tested += strings[i];
+        console.log(tested);
+    } if (tested === strings.join('')) {
+        return true;
+    } else return false;
+    // Return false unless all strings pass the test
+   
+
+
     
     // YOUR CODE ABOVE HERE //
 }
-
+*/
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
