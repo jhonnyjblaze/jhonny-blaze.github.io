@@ -16,13 +16,10 @@
 
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    // Check if it is true that value is an array
-    if (Array.isArray(value)) {
-        // If true return true
-        return true;
-      // If not true return false
-    } else return false;
-    
+    // Check if it is true that value is an array // If true return true
+    if (Array.isArray(value)) return true;
+    // If not true return false 
+    else return false; 
         
     // YOUR CODE ABOVE HERE //
 }
@@ -52,6 +49,21 @@ function isObject(value) {
     
 
     // YOUR CODE ABOVE HERE //
+
+
+/**
+function isObject(value) {
+    // YOUR CODE BELOW HERE //
+    // if the input value is an object AND that 'object' is not null AND that object is not an array And
+    if (typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false) {
+        return true;
+    } else {
+        return false;
+    }
+
+    // YOUR CODE ABOVE HERE //
+}
+*/
 
 /**
 function isObject(value) {
@@ -116,15 +128,15 @@ function isCollection(value) {
 /**
  * Given an input value, return the type of the value as a String
  * 
- * Types are one of: 
- *    - "string"
+ * Types are one of: typeof works-> // !
+ *    - "string" // !
  *    - "array"
  *    - "object"
- *    - "undefined"
- *    - "number"
- *    - "boolean"
+ *    - "undefined" // !
+ *    - "number" // !
+ *    - "boolean" // !
  *    - "null"
- *    - "function"
+ *    - "function" // !
  *    - "date"
  * 
  * Examples:
@@ -141,7 +153,7 @@ C: stringify
 E: typeof produces false positives i.e. typeof Array -> 'object'
 */
 
-
+/*
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     /* 
@@ -150,9 +162,25 @@ function typeOf(value) {
     then slice the results to remove the extra charcters [object ...] 
     finally make the sliced result lowercased before returning.
     */
-
+/*
     return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
     
+    
+    // YOUR CODE ABOVE HERE //
+}
+*/
+
+function typeOf(value) {
+    // YOUR CODE BELOW HERE //
+    // condition to address only simple data types
+    if (typeof value !== 'object') { return typeof value; } 
+    // conditions for complex data types typeof -> object, array, null, or date object
+    if (Array.isArray(value)) { return 'array'; } 
+    if (value === null) { return 'null'; }
+    if (value instanceof Date) { return 'date';}
+
+    // why does the above code solve without the below code?
+    // else return 'object';
     
     // YOUR CODE ABOVE HERE //
 }
