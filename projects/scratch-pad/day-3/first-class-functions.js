@@ -188,24 +188,24 @@ C: Return true only if ALL Strings pass the test
 E: N/A
 */
 
-/*
+
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+    // Empty array to test strings
     var tested = [];
+    // For loop to access strings from array
     for (var i = 0; i < strings.length; i++) {
-        tested += strings[i];
+        // Push tested strings into empty array
+        tested.push(test(strings[i]));
         console.log(tested);
-    } if (tested === strings.join('')) {
-        return true;
-    } else return false;
-    // Return false unless all strings pass the test
-   
-
-
+      // If tested array equals false
+    } if (tested === false) {
+      return false;
+    } else return true;
     
     // YOUR CODE ABOVE HERE //
 }
-*/
+
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
