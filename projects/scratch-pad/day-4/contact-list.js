@@ -22,7 +22,7 @@
  *      4. removeContact(contact): takes a contact object to be removed from 
  *         the contact-list.
  *      5. add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 
- *         return a String formated with all the full-names of the separated 
+ *         return a String formated with all the full-names of the contacts separated 
  *         with a line-break, like so:
  *          
  *         myContacts.printAllContactNames(); // => Max Gaudin
@@ -54,12 +54,52 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
-    
+    // Empty Array literal named contacts to collect contact list contacts
+    var contacts = [];
+        
     return {
         // we implemented the length api for you //
+        // length key, annonymous function value
         length: function() {
+          // return the number of contacts within the list.
             return contacts.length;
+        },
+        // addContact key, function value with contact parameter
+        addContact: function(contact) {
+            // Add contact into the contacts array
+            contacts.push(contact);
+        },
+        // findContact key, function value with fullName parameter
+        findContact: function(fullName) {
+            // for of loop to loop over contacts array
+            for (var element of contacts) {
+                // If fullName === element.nameFirst + ' ' + element.nameLast return the element
+                 if(fullName === element.nameFirst.concat(' ', element.nameLast)) { return element; }
+                // If not true return undefined
+                else return undefined;
+            } 
+        },
+        // removeContact key, function value with contact parameter
+        removeContact: function(contact) {
+            // for of loop to loop over contacts array
+            for (var element of contacts) {
+                // If contact === element grab index and set to value of i
+                if (contact === element) { var i = contacts.indexOf(); }
+                // Remove element from the index it is in
+                contacts.splice(i, 1);
+            }
+        },
+        // printAllContactNames key, annonymous function value
+        printAllContactNames: function() {
+            // Empty String literal named output to collect contact names
+            var output = '';
+            // for of loop to loop over contacts array
+            for (var element of contacts) {
+                // Assign output to equal the nameFirst + nameLast values of each element with a newline after each element
+                output += element.nameFirst.concat(' ', element.nameLast + '\n');
+            }
+            // return ouput with any white space at either end of the string removed
+            return output.trim();
         }
     }
 }
