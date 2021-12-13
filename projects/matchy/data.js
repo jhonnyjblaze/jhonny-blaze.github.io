@@ -146,6 +146,22 @@ console.log(animals, animals.length);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// Create a data structure for a list of friends with [] 
+// Arrays are for list like objects
+// Create a variable called friends and assign it to chosen data structure
+var friends = [];
+/* Write a function called getRandom that takes the animals array 
+and returns a random index of the input array using Math.random
+*/
+function getRandom(animals) {
+  return Math.random(animals.length);
+}
+
+// Invoke getRandom function and add a random animal and its name to friends
+//friends.push(getRandom(animals).animals['name']);
+
+// Output friends to the console
+console.log(friends);
 
 
 /**
