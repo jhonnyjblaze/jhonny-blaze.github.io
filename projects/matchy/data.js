@@ -27,10 +27,15 @@
 ~~~ 
  */
 
+// Assign empty Object literal to variable named animal 
 var animal = {};
-animal.species = 'Canis lupus familiaris';
+// Create species key (with dot notation) on the animal object and assign value 'Canis lupus familiaris'
+animal.species = 'dog';
+// Create name key (with bracket notation) on the animal object and assign value 'Goofy'
 animal['name'] = 'Goofy';
+// Create noises key on the animal object assign value []
 animal.noises = [];
+// Print animal object to the console
 console.log(animal);
 
 
@@ -52,29 +57,41 @@ console.log(animal);
  11. [ ] Does it look right?
  */
 
+ // Assign empty Array literal to variable named noises
  var noises = [];
+ // Create first element of noises array using bracket notation
  noises[0] = 'Yaaah-hoo-hoo-hoo-hooey!!!';
+ // Create an element at the end of the noises array using Array push method
  noises.push('Wowwhoa!');
+ // Add an element to the beginning of the noises array using Array unshift method
  noises.unshift('Ouch!');
- noises[noises.length - 1] = 'Whaaaaugh!';
+ // Add an element to the end of the noises array using bracket notation w/o hard coding
+ noises[noises.length] = 'Whaaaaugh!';
+ // Output the length of the noises array to the console 
  console.log(noises.length);
+ // Output the last element in the noises array to the console w/o hard coding
  console.log(noises[noises.length - 1]);
+ // Output the whole array to the console
  console.log(noises);
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+// Use bracket notation to assign the noises array as the value to the noises property/key on the animal object
 animal['noises'] = noises;
+// Add a new noise element to the noises array on the animal object's noises property/key 
 animal.noises.push('Whoooooa!');
+// Output the animal object to the console
 console.log(animal);
 
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
- *
+ *  Bracket notation or dot notation.
  * 2. What are the different ways of accessing elements on arrays?
- *
+ *  Only bracket notation.
  * *******************************************************************
  */
 
@@ -91,7 +108,39 @@ console.log(animal);
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// Create a variable named animals and assign it to an empty Array literal
+var animals = [];
+// Use the Array push method to push the animal object into the animals array
+animals.push(animal);
+// Output the animals array to the console
+console.log(animals);
+// Create a variable called 'duck' and assign it to the data => `{ species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }`
+var duck = {
+  species: 'duck', 
+  name: 'Jerome', 
+  noises: ['quack', 'honk', 'sneeze', 'woosh']
+};
+// Use the push method and push duck to animals
+animals.push(duck);
+// Output animals to the console
+console.log(animals);
+// Create two more animal objects with a species, a name, and at least two sounds sounds
+var dolphin = {
+  species: 'dolphin', 
+  name: 'Flipper', 
+  noises: ['click', 'squeak']
+};
 
+var cat = {
+  species: 'cat', 
+  name: 'Otis', 
+  noises: ['meow', 'purr', 'hiss']
+};
+
+// add each one (dolphin and cat) of them to the animals array
+animals.push(dolphin, cat);
+// Output animals and the length of animals to the console
+console.log(animals, animals.length);
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
