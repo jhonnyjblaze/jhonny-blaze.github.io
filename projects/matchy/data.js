@@ -165,8 +165,6 @@ function getRandom(animals) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-/** FAILING CODE BELOW */
-
 // Invoke getRandom function and add a random animal and its name to friends
 
 
@@ -185,6 +183,7 @@ in the `animals` array
 cat['friends'] = friends;
 console.log(cat);
 
+console.log(animals);
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and

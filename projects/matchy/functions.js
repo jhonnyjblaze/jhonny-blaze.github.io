@@ -13,6 +13,23 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/* 
+Implement a function declaration called `search` that Takes a paramater 
+representing an Array of `animals`.  Takes a paramater representing a 
+String, the name of an animal on which to perform a search.
+*/
+
+function search(arr, str) {
+    /* Looks through the `animals` Array, and returns the animal's 
+    Object if an animal with that name exists. 
+    Returns `null` if no animal with that name exists */
+    for (var element of arr) {
+        if (element['name'] === str) {
+            return element;
+        }
+    }
+    return null;
+}
 
 
 //////////////////////////////////////////////////////////////////////
