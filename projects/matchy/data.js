@@ -152,16 +152,38 @@ console.log(animals, animals.length);
 var friends = [];
 /* Write a function called getRandom that takes the animals array 
 and returns a random index of the input array using Math.random
-*/
-function getRandom(animals) {
-  return Math.random(animals.length);
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
+*/
+function getRandom(animals) {
+  min = 0;
+  max = Math.floor(animals.length - 1);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+/** FAILING CODE BELOW */
+
 // Invoke getRandom function and add a random animal and its name to friends
-//friends.push(getRandom(animals).animals['name']);
+
+
+ var index = getRandom(animals);
+ console.log(index);
+ console.log(animals[index]['name']);
+ friends.push(animals[index]['name']);
 
 // Output friends to the console
 console.log(friends);
+
+/* Using **bracket notation**, add the `friends` list as a **property** also named `friends` on one of the animals 
+in the `animals` array
+*/
+
+cat['friends'] = friends;
+console.log(cat);
 
 
 /**
