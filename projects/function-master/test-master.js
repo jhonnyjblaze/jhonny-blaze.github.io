@@ -92,11 +92,11 @@
     }
 
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "???");
+    assert.equal(this.counter, undefined);
   });
 
   QUnit.test("Inner scope can access outer scope", function(assert){
