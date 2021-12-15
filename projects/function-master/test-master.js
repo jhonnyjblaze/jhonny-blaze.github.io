@@ -159,7 +159,7 @@
     function foo(whatever){
       return "hello, this" + whatever();
     }
-    assert.equal(foo(yay), "???");
+    assert.equal(foo(yay), "hello, this is dog");
   });
 
 })();
