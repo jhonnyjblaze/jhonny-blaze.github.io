@@ -34,7 +34,7 @@
   QUnit.test("A functions local scope is not available in an outer scope.", function(assert){
     function yay(){
       var kix = "kid tested mother approved";
-      assert.equal(kix, "???");
+      assert.equal(kix, "kid tested mother approved");
     }
     yay();
     
@@ -48,7 +48,7 @@
     } else {
       has_kix = "i prefer cheerios";
     }
-    assert.equal(has_kix, "???");
+    assert.equal(has_kix, "i prefer cheerios");
   });
 
   QUnit.test("Functions don't have access to eachothers scope", function(assert){
