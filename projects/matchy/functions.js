@@ -97,7 +97,28 @@ function remove(arr, str) {
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * Write a function declaration called `add` with a signature of `add(animals, animal)
+ * 
+ * Takes 2 parameter, an Array of animals, and an Object representing a new animal to 
+ * be added.
+ */
 
+function add(arr, obj) {
+    /**
+     * Checks that the animal Object has a `name` property with a length > 0. 
+     * Checks that the animal Object has a `species` property with a length > 0.
+     * Has a **unique** name, meaning no other animals have that name. 
+     */    
+
+    // Looks through the `animals` Array
+    for (var element of arr) {
+        // If an animal with that name exists
+        if (element['name'] !== obj.name && obj.name.length > 0 && obj.species.length > 0) {
+            arr.push(obj);
+        } else return arr;
+    }
+}
 
 /**
  * You did it! You're all done with Matchy!
