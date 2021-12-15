@@ -47,6 +47,10 @@ function valuesToString(object) {
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/* arrayOrObject() : Should take one argument and return 'array' if its an 
+array and 'object' if its an object
+*/
+
 function arrayOrObject(collection) {
     if (Array.isArray(collection)) return 'array';
     else return 'object';
@@ -56,8 +60,12 @@ function arrayOrObject(collection) {
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/* capitalizeWord() : Should take a string of one word, and return the word 
+with its first letter capitalized 
+*/
+
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1); 
 }
 
 //////////////////////////////////////////////////////////////////////
