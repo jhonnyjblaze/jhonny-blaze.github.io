@@ -131,11 +131,11 @@
     }
 
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreggreg");
   });
 
   QUnit.test("We can pass functions to other functions and then run them.", function(assert){
