@@ -18,6 +18,7 @@ each separated with a space
 */
 
 function keysToString(object) {
+    // return object keys in a string separated with a space
     return Object.keys(object).join(' ');
 }
 
@@ -25,8 +26,21 @@ function keysToString(object) {
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/* valuesToString() : Should take an object and return all its string values 
+in a string each separated with a space 
+*/
+
 function valuesToString(object) {
+   // console.log(Object.values(object).join(' '));
     
+    
+    /*
+    var arr = [];
+    for (var key in object) {
+        arr.push(key);
+        }
+    console.log(arr.join(' '));
+    */
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -34,7 +48,8 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)) return 'array';
+    else return 'object';
 }
 
 //////////////////////////////////////////////////////////////////////
