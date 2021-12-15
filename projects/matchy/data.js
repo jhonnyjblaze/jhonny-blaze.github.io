@@ -180,8 +180,8 @@ console.log(friends);
 in the `animals` array
 */
 
-cat['friends'] = friends;
-console.log(cat);
+duck['friends'] = friends;
+console.log(duck);
 
 console.log(animals);
 
