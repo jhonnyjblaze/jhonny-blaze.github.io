@@ -31,16 +31,20 @@ in a string each separated with a space
 */
 
 function valuesToString(object) {
-   // console.log(Object.values(object).join(' '));
-    
-    
-    /*
+    // empty array for loop output
     var arr = [];
+    // empty string for return value
+    var str = ' ';
+    // for in loop to loop through object key
     for (var key in object) {
-        arr.push(key);
-        }
-    console.log(arr.join(' '));
-    */
+        // if object value is a string push into empty array
+        if (typeof object[key] === 'string' || object[key] instanceof String)
+        arr.push(object[key]);
+        // assign the arr array joined as a string with a space to str
+        str = arr.join(' ');
+    }
+    // return str
+    return str;   
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -52,7 +56,9 @@ array and 'object' if its an object
 */
 
 function arrayOrObject(collection) {
+    // If collection is an array return array
     if (Array.isArray(collection)) return 'array';
+    // Otherwise return object
     else return 'object';
 }
 
@@ -72,16 +78,24 @@ function capitalizeWord(string) {
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/*capitalizeAllWords() : Should take a string of words and return a string with 
+all the words capitalized
+*/
+
 function capitalizeAllWords(string) {
-    
+    return string.toUpperCase();    
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function welcomeMessage(object) {
+/* welcomeMessage() : Should take an object with a name property and 
+return 'Welcome <Name>!' 
+*/
 
+function welcomeMessage(object) {
+    return 'Welcome' + ' ' + object.name + '!';
 }
 
 //////////////////////////////////////////////////////////////////////
