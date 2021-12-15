@@ -7,7 +7,7 @@
     //                     ┌ Change this to what it should be
     assert.equal( value, 'hello tests');
     //                           ┌ Change this to what it should be
-    assert.equal( some_number, '484');
+    assert.equal( some_number, 484);
   });
 
   QUnit.test("Functions can access/modify variables in parent scope.", function(assert){
@@ -106,7 +106,7 @@
       return im_outside + im_inside;
     }
 
-    assert.equal(yay(), "???");
+    assert.equal(yay(), "alphaomega");
   });
 
   QUnit.test("Functions retain outer scope references between calls.", function(assert){
