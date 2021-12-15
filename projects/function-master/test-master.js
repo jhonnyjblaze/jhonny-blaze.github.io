@@ -61,8 +61,8 @@
       if(this.from_yay !== undefined){
         in_foo = this.from_yay;
       }
-      assert.equal(in_foo, "???");
-      assert.equal(this.from_yay, "???");
+      assert.equal(in_foo, "i'm in foo");
+      assert.equal(this.from_yay, undefined);
     }
     yay();
     foo();
@@ -75,11 +75,11 @@
     function yay(){
       var peanuts = "roasted";
 
-      assert.equal(peanuts, "???");
+      assert.equal(peanuts, "roasted");
     }
     yay();
 
-    assert.equal(peanuts, "???");
+    assert.equal(peanuts, 300);
   });
 
   QUnit.test("Variables created with var in a funtion are re-created each time", function(assert){
