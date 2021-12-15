@@ -5,6 +5,7 @@
 // objectValues() : Should take an object and return its values in an array
 
 function objectValues(object) {
+    // return object values in an array
     return Object.values(object);
 } 
 
@@ -12,8 +13,12 @@ function objectValues(object) {
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function keysToString(object) {
+/* keysToString() : Should take an object and return all its keys in a string 
+each separated with a space
+*/
 
+function keysToString(object) {
+    return Object.keys(object).join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
