@@ -116,9 +116,9 @@
     }
 
     yay();
-    assert.equal(im_outside, "???");
+    assert.equal(im_outside, 14);
     yay();
-    assert.equal(im_outside, "???");
+    assert.equal(im_outside, 15);
   });
 
   QUnit.test("We can do goofy stuff with outer scope", function(assert){
