@@ -51,13 +51,13 @@ function replace(arr, str, obj) {
     it's entire Object with the replacement Object. */
     // variable to hold array location for replacement
     var index;
-    
     // Looks through the `animals` Array
     for (var element of arr) {
         // If an animal with that name exists
         if (element['name'] === str) {
-            // returns the animal's Object
+            // assign index to the array index of target
             index = arr.indexOf(element); 
+            // assign obj value to the index of target
             arr[index] = obj;
             //return obj;
             return obj;
@@ -71,6 +71,26 @@ function replace(arr, str, obj) {
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * Write a function declaration called `remove` with a signature of 
+ * `remove(animals, name)` 
+ * 
+ * Takes 2 parameters, an Array of animals, and a name of an animal 
+ * on which to perform a search.
+ */
+
+function remove(arr, str) {
+    // If an animal with that name exists within the `animals` Array,
+    // variable to hold array location for removal
+    var index;
+    // Looks through the `animals` Array
+    for (var element of arr) {
+        // assign index to the array index of target
+        index = arr.indexOf(element); 
+        // If an animal with that name exists remove it from array
+        if (element['name'] === str) { arr.splice([index], 1); }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
