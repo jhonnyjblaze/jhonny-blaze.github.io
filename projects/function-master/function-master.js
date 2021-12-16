@@ -85,8 +85,33 @@ all the words capitalized
 // I do not see the error.
 
 function capitalizeAllWords(string) {
-    // console.log(string.toUpperCase());
-    return string.toUpperCase();    
+    /**
+     * Break the string into words Array (by space delimiter)
+     * Break each word to first character + rest of characters in the word
+     * The first letter is transformed to uppercase, and the rest remains as-is
+     * Joins back the Array into a string with spaces
+     */
+    
+    return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    
+    /**
+     * The regex basically matches the first letter of each word within the given 
+     * string and transforms only that letter to uppercase: 
+     * \b matches a word boundary (the beginning or ending of word);
+     * \w matches the following meta-character [a-zA-Z0-9].
+     */
+
+    // return string.replace(/\b\w/g, s => s.toUpperCase());
+    
+    /**
+     * This regex matches the first letter and every non-whitespace letter preceded 
+     * by whitespace within the given string and transforms only that letter to uppercase:
+     * \s matches a whitespace character
+     * \S matches a non-whitespace character
+     * (x|y) matches any of the specified alternatives
+     */
+    
+    // return string.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 }
 
 //////////////////////////////////////////////////////////////////////
