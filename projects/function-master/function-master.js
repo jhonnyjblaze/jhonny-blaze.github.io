@@ -82,7 +82,10 @@ function capitalizeWord(string) {
 all the words capitalized
 */
 
+// I do not see the error.
+
 function capitalizeAllWords(string) {
+    // console.log(string.toUpperCase());
     return string.toUpperCase();    
 }
 
@@ -94,7 +97,10 @@ function capitalizeAllWords(string) {
 return 'Welcome <Name>!' 
 */
 
+// I do not see the error. 
+
 function welcomeMessage(object) {
+    //if (object.name !== undefined) 
     return 'Welcome' + ' ' + object.name + '!';
 }
 
@@ -102,24 +108,44 @@ function welcomeMessage(object) {
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function profileInfo(object) {
+/* profileInfo() : Should take an object with a name an(d) a species and 
+return '<Name> is a <Species>'
+*/
+// I do not see the error. 
 
+function profileInfo(object) {
+    // console.log(object.name + ' is a ' + object.species);
+    return object.name + ' is a ' + object.species;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function maybeNoises(object) {
+/* maybeNoises() : Should take an object, if this object has a noises array 
+return them as a string separated by a space, if there are no noises return 
+'there are no noises' 
+*/
 
+// I do not see the error. 
+
+function maybeNoises(object) {
+    if (Array.isArray(object.noises)) return object.noises.join(' ');
+    if (!Array.isArray(object.noises)) return 'there are no noises'
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function hasWord(string, word) {
+/* hasWord() : Should take a string of words and a word and return true 
+if <word> is in <string of words>, otherwise return false. */
 
+function hasWord(string, word) {
+    // If string includes word return true
+    if (string.includes(word)) return true;
+    // If not return false
+    else return false;
 }
 
 //////////////////////////////////////////////////////////////////////
