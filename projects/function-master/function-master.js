@@ -146,7 +146,7 @@ function welcomeMessage(object) {
 /* profileInfo() : Should take an object with a name an(d) a species and 
 return '<Name> is a <Species>'
 */
-// I do not see the error. 
+
 
 function profileInfo(object) {
     // undefined variable called name
@@ -177,11 +177,12 @@ return them as a string separated by a space, if there are no noises return
 'there are no noises' 
 */
 
-// I do not see the error. 
 
 function maybeNoises(object) {
+    // if object.noises is an array and has a length of 0 or if object.noises is not an array return 'there are no noises'
+    if (Array.isArray(object.noises) && object.noises.length === 0 || !Array.isArray(object.noises)) return 'there are no noises';
+    // if object.noises is an array reutrn the elements as a string joined separated by a space
     if (Array.isArray(object.noises)) return object.noises.join(' ');
-    if (!Array.isArray(object.noises)) return 'there are no noises'
 }
 
 //////////////////////////////////////////////////////////////////////
