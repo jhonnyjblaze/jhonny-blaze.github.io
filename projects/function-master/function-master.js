@@ -122,12 +122,22 @@ function capitalizeAllWords(string) {
 return 'Welcome <Name>!' 
 */
 
-// I do not see the error. 
 
 function welcomeMessage(object) {
-    //if (object.name !== undefined) 
-    return 'Welcome' + ' ' + object.name + '!';
+    // undefined variable called name
+    var name;
+    // name assigned to object.name capitalized
+    name = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
+    console.log(name);
+    // undefined variable called message
+    var message;
+    // message assigned to Welcome + whitespace + value of name + !
+    message = 'Welcome' + ' ' + name + '!';
+    console.log(message);
+    // return welcome message
+    return message;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
@@ -139,7 +149,7 @@ return '<Name> is a <Species>'
 // I do not see the error. 
 
 function profileInfo(object) {
-    // console.log(object.name + ' is a ' + object.species);
+    //console.log(object.name + ' is a ' + object.species);
     return object.name + ' is a ' + object.species;
 }
 
