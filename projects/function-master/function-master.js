@@ -152,8 +152,15 @@ function hasWord(string, word) {
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function addFriend (name, object) {
+/* addFriend() : Should take a name and an object and add the name to the 
+object's friends array then return the object 
+*/
 
+function addFriend (name, object) {
+    // Add name to object's friends array
+    object.friends.push(name);
+    // return the object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
