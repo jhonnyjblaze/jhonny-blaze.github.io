@@ -167,41 +167,101 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) {
+/* isFriend() : Should take a name and an object and return true if <name> 
+is a friend of <object> and false otherwise
+*/
 
+// I don't see the error
+
+function isFriend(name, object) {
+    // empty output array named arr
+    var arr = [];
+    // assigns array of friends name to arr
+    arr = Object.values(object.friends);
+    // checks if array element strictly equals name parameter return true if truthy
+    if (arr.find(element => element === name)) return true;
+    // return falsy if undefined
+    else return false;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
+/**
+ * nonFriends() : Should take a name and a list of people, and return a list of all 
+ * the names that <name> is not friends with
+ * @param {*} name 
+ * @param {*} array 
+ */
 
+function nonFriends(name, array) {
+    const iterator = array.values();
+
+    for (const value of iterator) {
+        if (name === value.name) {
+
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function updateObject(object, key, value) {
+/**
+ * updateObject() : Should take an object, a key and a value. Should update the 
+ * property <key> on <object> with new <value>. If <key> does not exist on <object> 
+ * create it 
+ * @param {*} object 
+ * @param {*} key 
+ * @param {*} value 
+ */
 
+function updateObject(object, key, value) {
+    // console.log(object.hasOwnProperty(key));
+    if (object.hasOwnProperty(key)) {
+        object.key = value;
+    } else object.key = key;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function removeProperties(object, array) {
+/**
+ * removeProperties() : Should take an object and an array of strings. 
+ * Should remove any properties on <object> that are listed in <array>
+ * @param {*} object 
+ * @param {*} array 
+ */
 
+function removeProperties(object, array) {
+    for (var element of array) {
+        if (object.hasOwnProperty(element)) {
+            delete element;
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function dedup(array) {
+/**
+ * dedup() : Should take an array and return an array with all the duplicates removed
+ * @param {*} array 
+ */
 
+function dedup(array) {
+    var arr = [];
+    for (var element in array) {
+        if (array[element] !== array[element]) {
+            arr.push(array[element]);
+        }
+    } console.log(arr);
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
