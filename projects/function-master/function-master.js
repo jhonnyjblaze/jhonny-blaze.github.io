@@ -128,12 +128,12 @@ function welcomeMessage(object) {
     var name;
     // name assigned to object.name capitalized
     name = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
-    console.log(name);
+    // console.log(name);
     // undefined variable called message
     var message;
     // message assigned to Welcome + whitespace + value of name + !
     message = 'Welcome' + ' ' + name + '!';
-    console.log(message);
+    // console.log(message);
     // return welcome message
     return message;
 }
@@ -149,8 +149,23 @@ return '<Name> is a <Species>'
 // I do not see the error. 
 
 function profileInfo(object) {
-    //console.log(object.name + ' is a ' + object.species);
-    return object.name + ' is a ' + object.species;
+    // undefined variable called name
+    var name;
+    // name assigned to object.name capitalized
+    name = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
+    // console.log(name);
+    // undefined variable called species
+    var species;
+    // species assigned to object.name capitalized
+    species = object['species'].charAt(0).toUpperCase() + object['species'].slice(1);
+    // console.log(species);
+    // undefined variable called message
+    var message;
+    // message assigned to name + ' is a ' + species
+    message = name + ' is a ' + species;
+    // console.log(message);
+    // return profile info
+    return message;
 }
 
 //////////////////////////////////////////////////////////////////////
