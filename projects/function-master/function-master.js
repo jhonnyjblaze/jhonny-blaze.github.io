@@ -192,6 +192,7 @@ function maybeNoises(object) {
 /* hasWord() : Should take a string of words and a word and return true 
 if <word> is in <string of words>, otherwise return false. */
 
+
 function hasWord(string, word) {
     // If string includes word return true
     if (string.includes(word)) return true;
@@ -222,17 +223,27 @@ function addFriend (name, object) {
 is a friend of <object> and false otherwise
 */
 
-// I don't see the error
+/**
+ QUnit.test("isFriend() : Should take a name and an object and return true if <name> 
+ is a friend of <object> and false otherwise", function(assert){
+     assert.equal(isFriend("jimmy",{friends:["bobby", "ralf"]}), false);
+    assert.equal(isFriend("ralf",{friends:["bobby", "ralf"]}), true);
+    assert.equal(isFriend("chuck",{}), false);
+}); 
+ */
+
 
 function isFriend(name, object) {
     // empty output array named arr
     var arr = [];
     // assigns array of friends name to arr
-    arr = Object.values(object.friends);
+    arr = object.friends;
+    // if array is undefined return false
+    if (arr === undefined) return false;
     // checks if array element strictly equals name parameter return true if truthy
     if (arr.find(element => element === name)) return true;
-    // return falsy if undefined
-    else return false;
+    // checks if array element strictly does not equals name parameter return false if truthy
+    if (arr.find(element => element !== name)) return false;   
 }
 
 //////////////////////////////////////////////////////////////////////
