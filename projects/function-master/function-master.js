@@ -257,14 +257,33 @@ function isFriend(name, object) {
  * @param {*} array 
  */
 
+/**
+ * QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with", function(assert){
+      var data = [
+        {name: "Jimmy", friends:["Sara", "Liza"]},
+        {name: "Bob", friends:[]},
+        {name: "Liza", friends: ["Jimmy"]},
+        {name: "Sara", friends: ["Jimmy"]}
+      ];
+      assert.deepEqual(nonFriends("Jimmy", data), ["Bob"]);
+      assert.deepEqual(nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
+      assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
+    });
+ *  
+ */
+
 function nonFriends(name, array) {
-    const iterator = array.values();
-
-    for (const value of iterator) {
-        if (name === value.name) {
-
-        }
-    }
+    // empty array named names to collect list of names
+    var names = [];
+    var friends = [];
+    var output = [];
+    // push each elements name value into names array
+    array.forEach(element => names.push(element.name));
+    //console.log(names); 
+    // push each elements friends values into friends array
+    array.forEach(element => friends.push(element.friends));
+    //console.log(friends);
+   // console.log(names[0] + friends[0]);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -280,11 +299,23 @@ function nonFriends(name, array) {
  * @param {*} value 
  */
 
+/**
+ * QUnit.test("updateObject() : Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. 
+   If <key> does not exist on <object> create it.", function(assert){
+      var data = {a: "one", b: "two", "hokey": false};
+      assert.deepEqual(updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false});
+      var data = {a: "one", b: "two", "hokey": false};
+      assert.deepEqual(updateObject(data, "ponies", "yes"), {a:"one", b:"two", hokey: false, ponies: "yes"});
+      var data = {a: "one", b: "two", "hokey": false};
+      assert.deepEqual(updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false});
+    });
+ *
+ * I don't understand why test are failing as console.log produces the values being tested for exactly
+ */
+
 function updateObject(object, key, value) {
-    // console.log(object.hasOwnProperty(key));
-    if (object.hasOwnProperty(key)) {
-        object.key = value;
-    } else object.key = key;
+    object[key] = value;
+    console.log(object);
 }
 
 //////////////////////////////////////////////////////////////////////
