@@ -272,19 +272,36 @@ function isFriend(name, object) {
  *  
  */
 
-function nonFriends(name, array) {
-    // empty array named names to collect list of names
-    var names = [];
-    var friends = [];
-    var output = [];
-    // push each elements name value into names array
-    array.forEach(element => names.push(element.name));
-    //console.log(names); 
-    // push each elements friends values into friends array
-    array.forEach(element => friends.push(element.friends));
-    //console.log(friends);
-   // console.log(names[0] + friends[0]);
-}
+    function nonFriends(name, array) {
+        // empty array named names to collect list of names
+        let names = [];
+        let friends = [];
+        let output = [];
+        let nonFriends = [];
+        // push each elements name values into names array
+        array.forEach(element => names.push(element.name));
+        //console.log(names);
+        array.forEach(element => friends.push(element.friends))
+    //    console.log(friends);
+        for (let index of friends) {
+          //console.log(index);
+          for (let value of index) {
+            //console.log(value)
+            if (output.indexOf(value) === -1) {
+             output.push(value);
+            }
+            nonFriends = names.concat(output);
+            // console.log(nonFriends);
+            // filter out non unique values from array
+            var unique = nonFriends.filter((value, index) => {
+              return nonFriends.indexOf(value) === nonFriends.lastIndexOf(value);
+            });  
+            
+          }
+        }
+        // return array with unique values
+        return unique;
+    }   
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
@@ -314,20 +331,11 @@ function nonFriends(name, array) {
  */
 
 function updateObject(object, key, value) {
-    // assign the object key/prop parameter to the value parameter
+    // assign object property to value input
     object[key] = value;
-    // console.log(object);
-
-    /*
-    // check if the object has the key parameter as an object property
-    if (object.hasOwnProperty(key)) {
-        // if it does assign the property to the value parameter
-        object[key] = value;
-        // if not assign the property to the value parameter
-    } else object[key] = value;
-    */
+    // return object
+    return object;
 }
-
 
 
 //////////////////////////////////////////////////////////////////////
