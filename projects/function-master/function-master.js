@@ -315,7 +315,7 @@ function nonFriends(name, array) {
 
 function updateObject(object, key, value) {
     object[key] = value;
-    console.log(object);
+    // console.log(object);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -329,10 +329,30 @@ function updateObject(object, key, value) {
  * @param {*} array 
  */
 
+/**
+ * QUnit.test("removeProperties() : Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>", function(assert){
+      var data = {a: "one", b: "two", "hokey": false};
+      removeProperties(data, ["a","hokey"]);
+      assert.deepEqual(data, {b: "two"});
+
+      var data = {a: "one", b: "two", "hokey": false};
+      removeProperties(data, ["b"])
+      assert.deepEqual(data, {a: "one", "hokey": false});
+
+      var data = {a: "one", b: "two", hokey: false};
+      removeProperties(data, []);
+      assert.deepEqual(data, {a: "one", b: "two", "hokey": false});
+    });  
+ *  
+ */
+
 function removeProperties(object, array) {
-    for (var element of array) {
-        if (object.hasOwnProperty(element)) {
-            delete element;
+    // iterate through object properties
+    for (var prop of array) {
+        // checks if the object has the current property
+        if (object.hasOwnProperty(prop)) {
+            // deletes the current property from the object if it is present
+            delete object[prop]; 
         }
     }
 }
