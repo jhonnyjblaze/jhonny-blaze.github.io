@@ -314,9 +314,21 @@ function nonFriends(name, array) {
  */
 
 function updateObject(object, key, value) {
+    // assign the object key/prop parameter to the value parameter
     object[key] = value;
     // console.log(object);
+
+    /*
+    // check if the object has the key parameter as an object property
+    if (object.hasOwnProperty(key)) {
+        // if it does assign the property to the value parameter
+        object[key] = value;
+        // if not assign the property to the value parameter
+    } else object[key] = value;
+    */
 }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
@@ -366,13 +378,29 @@ function removeProperties(object, array) {
  * @param {*} array 
  */
 
+/**
+ * QUnit.test( "dedup() : Should take an array and return an array with all the duplicates removed", function( assert ) {
+      var arrayOne = [1,2,2,2,3,4,5,5,5,5,"a","b","b","b","c"];
+      var arrayTwo = ["hello", "hello", "hello", "hello", "hello", "world", "hello", "world", "world", "world"];
+      assert.deepEqual(dedup(arrayOne), [1,2,3,4,5,"a","b","c"]);
+      assert.deepEqual(dedup(arrayTwo), ["hello", "world"]);
+    });
+ *  
+ */
+
 function dedup(array) {
+    // empty array named arr
     var arr = [];
+    // iterate through input array
     for (var element in array) {
-        if (array[element] !== array[element]) {
+        // console.log(array[element]);
+        // check if input array element is not present in arr
+        if (arr.indexOf(array[element]) === -1) {
+            // if it is not present push only the first such element into arr
             arr.push(array[element]);
         }
-    } console.log(arr);
+      // return arr
+    } return arr;
 }
 
 
