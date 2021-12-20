@@ -3,10 +3,13 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-  for (var i = '#'; i.length < 8; i += '#') {
-    console.log(i);
-  }
+function triangles(length) {
+  if (!length) {
+    length = 8;
+  }  
+    for (var i = '#'; i.length <= length; i += '#') {
+      console.log(i);
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -25,9 +28,35 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
+function drawChessboard(size) {
+  if (!size) {
+    size = 8;
+  }  
+// Grid width and length value
+// let size = 8;
+// Empty string for chessboard
+let grid = '';
+// Outer for loop for grid rows
+for (let i = 0; i < size; i++) {
+  // Inner for loop for grid columns
+  for (let j = 0; j < size; j++) {
+    // Check if the sum of the counters is even or odd
+    // If even put an empty space
+    if ((i + j) % 2 == 0) {
+      grid += ' ';
+      // Otherwise put a hash
+    } else {
+      grid += '#';
+    }
+  }
+  // Add a newline charactor to seperate each row
+  grid += '\n';
 }
+// Print the chessboard to the console
+console.log(grid);
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

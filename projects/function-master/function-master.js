@@ -258,7 +258,8 @@ function isFriend(name, object) {
  */
 
 /**
- * QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with", function(assert){
+ * QUnit.test("nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with", 
+ * function(assert){
       var data = [
         {name: "Jimmy", friends:["Sara", "Liza"]},
         {name: "Bob", friends:[]},
@@ -272,36 +273,29 @@ function isFriend(name, object) {
  *  
  */
 
-    function nonFriends(name, array) {
-        // empty array named names to collect list of names
-        let names = [];
-        let friends = [];
-        let output = [];
-        let nonFriends = [];
-        // push each elements name values into names array
-        array.forEach(element => names.push(element.name));
-        //console.log(names);
-        array.forEach(element => friends.push(element.friends))
-    //    console.log(friends);
-        for (let index of friends) {
-          //console.log(index);
-          for (let value of index) {
-            //console.log(value)
-            if (output.indexOf(value) === -1) {
-             output.push(value);
+function nonFriends(searchName, people) {
+    const output = [];
+    for (let i = 0; i < people.length; i++) {
+        let isFriend;
+	    const person = people[i];
+        // console.log(person);
+        const friends = person.friends;
+        // loops thru friends, check for name in friends
+        for (let j = 0; j < friends.length; j++) {
+            const name = friends[j];
+        // console.log(name);
+            if (name === searchName) {
+                // true: this person is a friend, so do nothing
+                isFriend = name;
+                // false : searchName is NOT in array, therefore NOT a friend //
             }
-            nonFriends = names.concat(output);
-            // console.log(nonFriends);
-            // filter out non unique values from array
-            var unique = nonFriends.filter((value, index) => {
-              return nonFriends.indexOf(value) === nonFriends.lastIndexOf(value);
-            });  
-            
-          }
         }
-        // return array with unique values
-        return unique;
-    }   
+        if(person.name !== searchName && !isFriend) {
+        output.push(person.name);
+        }
+    }
+    return output;
+}   
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////

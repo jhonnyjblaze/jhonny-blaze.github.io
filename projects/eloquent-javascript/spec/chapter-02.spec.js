@@ -25,6 +25,7 @@ describe('Eloquent JavaScript', function () {
           expect(args[0]).to.equal(triangle[i])
         });
         triangle.forEach((val, i) => {
+          console.log(console.log.args[i]);
           expect(val).to.equal(console.log.args[i][0]);
         });
       });
