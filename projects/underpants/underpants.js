@@ -48,9 +48,19 @@ _.identity = function (value) {
 */
 
 // assign _.typeOf to function expression that takes a param of any value
-_.typeOf = function() {
-
-}
+_.typeOf = function(value) {
+    // check if typeof value is not an object and return the typeof value
+    if (typeof(value) !== 'object') return typeof(value);
+    // conditions for complex data types typeof -> object, array, null, or date object
+    // check if value is an array if so return array
+    if (Array.isArray(value)) { return 'array'; } 
+    // check if value is null if so return null
+    if (value === null) { return 'null'; }
+    // check if value is Date if so return date
+    if (value instanceof Date) { return 'date';}
+    // otherwise return object
+    else return 'object';
+};
 
 
 /** _.first
