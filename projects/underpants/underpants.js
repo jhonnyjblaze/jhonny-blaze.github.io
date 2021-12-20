@@ -49,7 +49,7 @@ _.identity = function (value) {
 
 // assign _.typeOf to function expression that takes a param of any value
 _.typeOf = function(value) {
-    // check if typeof value is not an object and return the typeof value
+    // check if typeof value is not an object, if not then return the typeof value
     if (typeof(value) !== 'object') return typeof(value);
     // conditions for complex data types typeof -> object, array, null, or date object
     // check if value is an array if so return array
@@ -80,6 +80,17 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+_.first = function(array, number) {
+    // If array is not an array or if number param is - return []
+    if (!Array.isArray(array) || number < 0) { return []; }
+    // If number param is empty or not a number return the first element in array parameter
+    else if (typeof(number) !== 'number' || number === null) { return array[0]; }
+    // if number param is greater than array.length return array
+    else if (number > array.length) { return array; }
+    // Otherwise return an equal number of array elements to the number param
+    else { return array.slice(0, number); }
+};
 
 
 /** _.last
