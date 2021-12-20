@@ -21,6 +21,11 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+// assign _.identity to function expression that takes a param of any value
+_.identity = function (value) {
+    // return the value unchanged
+    return value;
+};
 
 /** _.typeOf
 * Arguments:
@@ -41,6 +46,11 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
+
+// assign _.typeOf to function expression that takes a param of any value
+_.typeOf = function() {
+
+}
 
 
 /** _.first
