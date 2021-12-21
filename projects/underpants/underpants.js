@@ -311,18 +311,18 @@ _.filter = function(arr, func) {
 
 // assign _.reject to function expression that takes a param of an array and a function
 _.reject = function(arr, func) {
-    // empty array assigned to output
-    const output = [];
+    // empty array assigned to rejected
+    const rejected = [];
     // iterate through array
     for (let i = 0; i < arr.length; i++) {
         // call func param for each element, it's index, and array
         if (!func(arr[i], i, arr)) {
-            // push all elements that get false into output
-            output.push(arr[i]);
+            // push all elements that get false into rejected
+            rejected.push(arr[i]);
         }
     }
-    // return output
-    return output;
+    // return rejected
+    return rejected;
 };
 
 
@@ -345,6 +345,29 @@ _.reject = function(arr, func) {
 }
 */
 
+// assign _.partition to function expression that takes a param of an array and a function
+_.partition = function(arr, func) {
+    // assign empty array to output
+    const output = [];
+    const truthy = [];
+    const falsy = [];
+    // iterate through input array
+    for (let i = 0; i < arr.length; i++) {
+        // if func call on element is true
+        if (func(arr[i], i, arr)) {
+            // push element into truthy
+            truthy.push(arr[i]);
+        // if func call on element is false
+        } else {
+            // push element into falsy
+            falsy.push(arr[i]);
+        }
+    }
+    // unshift truthy and falsy arrays into output array
+    output.unshift(truthy, falsy);
+    // return output
+    return output
+};
 
 /** _.map
 * Arguments:
