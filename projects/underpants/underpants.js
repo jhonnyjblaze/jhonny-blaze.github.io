@@ -257,6 +257,22 @@ _.unique = function(arr) {
 *   use _.each in your implementation
 */
 
+// assign _.filter to function expression that takes a param of an array and a function
+_.filter = function(arr, func) {
+    // assign empty array to output
+    const output = [];
+    // iterate through array
+    for (let i = 0; i < arr.length; i++) {
+        // call func param for each element, it's index, and arr parameter
+        if (func(arr[i], i, arr)) {
+            // push all true elements into output array 
+            output.push(arr[i]);
+        }
+    }
+    // return output
+    return output;
+};
+
 
 /** _.reject
 * Arguments:
