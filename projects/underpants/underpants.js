@@ -224,6 +224,22 @@ _.each = function(coll, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+// assign _.unique to function expression that takes a param of a collection and a function
+_.unique = function(arr) {
+    // empty output array
+    let output = [];
+    // iterate through input array
+    for (let i = 0; i < arr.length; i++) {
+        // assign element to each array element
+        let element = arr[i];
+        // check if the element is not inside of the output array
+        if (output.indexOf(element) === -1) {
+            // if not present push element into output array
+            output.push(element);
+        }
+    }
+    return output;
+};
 
 /** _.filter
 * Arguments:
