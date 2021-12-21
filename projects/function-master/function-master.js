@@ -273,6 +273,37 @@ function isFriend(name, object) {
  *  
  */
 
+function nonFriends(name, people) {
+    // output array
+    const output = [];
+    // iterate through people array
+    for (let i = 0; i < people.length; i++) {
+        // assign each persons friends to friendsOfPerson 
+        const friendsOfPerson = people[i].friends
+        // assign each person to person
+        const person = people[i];
+        // assign names to empty array
+        const names = [];
+        // push each persons name into names array
+        people.forEach(n => names.push(n.name));
+        // iterate through names array
+        for (let j = 0; j < names.length; j++) {
+        // check is persons name equals name param and check if each name is not a friend of each person
+            if (person.name == name && !friendsOfPerson.includes(names[j])) {
+                // push each name into the output array 
+                output.push(names[j]);
+            }
+        }
+        
+    }
+    // remove the name param from output array
+    output.splice(output.indexOf(name), 1);
+    // return output array
+    return output;
+}
+
+
+/*
 function nonFriends(searchName, people) {
     const output = [];
     for (let i = 0; i < people.length; i++) {
@@ -296,6 +327,7 @@ function nonFriends(searchName, people) {
     }
     return output;
 }   
+*/
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
