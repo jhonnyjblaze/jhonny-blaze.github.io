@@ -200,14 +200,14 @@ _.each = function(coll, func) {
     if (Array.isArray(coll)) {
         // iterate through coll elements
         for (let i = 0; i < coll.length; i++) {
-            // call func param on each element
+            // call func param on each element, it's index, <collection>
             func(coll[i], i, coll);
         }
       // if coll is an object  
     } else {
             // iterate through coll
             for (let key in coll) {
-                // call func param on each coll  item
+                // call func param on each property's value, it's key, <collection>
                 func(coll[key], key, coll);
             }
     }
