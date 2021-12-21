@@ -88,7 +88,7 @@ _.first = function(array, number) {
     else if (typeof(number) !== 'number' || number === null) { return array[0]; }
     // if number param is greater than array.length return array
     else if (number > array.length) { return array; }
-    // Otherwise return an equal number of array elements to the number param
+    // Otherwise return an equal number of array elements to the number param beginning at first/zero index
     else { return array.slice(0, number); }
 };
 
@@ -110,6 +110,17 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+
+_.last = function(array, number) {
+    // if array param is not an array return []
+    if (!Array.isArray(array) || number < 0) { return []; }
+    // if number param is not given or not a number return the last element in array param
+    else if (number === null || typeof(number) !== 'number') { return array[array.length - 1]; }
+    // if number param is greater than array.length return array
+    else if (number > array.length) { return array; }
+    // otherwise return an equal number of array elements to the number param beginning at last index
+    else return array.slice(-number);
+};
 
 
 /** _.indexOf
