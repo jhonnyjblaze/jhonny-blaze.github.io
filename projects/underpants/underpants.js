@@ -81,6 +81,7 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+// assign _.first to function expression that takes a param of an array and a number
 _.first = function(array, number) {
     // If array is not an array or if number param is - return []
     if (!Array.isArray(array) || number < 0) { return []; }
@@ -111,6 +112,7 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+// assign _.last to function expression that takes a param of an array and a number
 _.last = function(array, number) {
     // if array param is not an array return []
     if (!Array.isArray(array) || number < 0) { return []; }
@@ -139,6 +141,7 @@ _.last = function(array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+// assign _.indexOf to function expression that takes a param of an array and any value
 _.indexOf = function(array, value) {
     let element;
     // iterate through array elements
@@ -167,6 +170,12 @@ _.indexOf = function(array, value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+// assign _.contains to function expression that takes a param of an array and a value
+_.contains = function(array, value) {
+    // return true if array contains value and false otherwise using the ternary operator
+    return (_.indexOf(array, value) > 0 ? true : false);    
+};
 
 
 /** _.each
