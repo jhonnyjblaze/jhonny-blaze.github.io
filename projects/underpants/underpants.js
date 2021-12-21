@@ -139,6 +139,19 @@ _.last = function(array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+    let element;
+    // iterate through array elements
+    for (let i = 0; i < array.length; i++) {
+        // assign element to array[i] the array element being iterated
+        element = array[i];
+        // if element equals value param return the array param index
+        if (element === value) { return i; } 
+    } 
+    // if element does not equal value param return -1
+    if (element !== value) { return -1; }
+};
+
 
 /** _.contains
 * Arguments:
