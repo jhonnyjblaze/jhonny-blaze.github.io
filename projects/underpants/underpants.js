@@ -257,6 +257,28 @@ _.unique = function(arr) {
 *   use _.each in your implementation
 */
 
+/*
+// assign _.filter to function expression that takes a param of an array and a function
+_.filter = function(arr, func) {
+    // assign empty array to output
+    const output = [];
+    // iterate through array
+    console.log(output.push(_.each(arr, func)));
+    //console.log(output.push((arr)));
+    // for (let i = 0; i < arr.length; i++) {
+    //     // call func param for each element, it's index, and arr parameter
+    //     if (func(arr[i], i, arr)) {
+    //         // push all true elements into output array 
+    //         output.push(arr[i]);
+    //     }
+    // }
+    // return output
+    // return output;
+};
+*/
+
+
+
 // assign _.filter to function expression that takes a param of an array and a function
 _.filter = function(arr, func) {
     // assign empty array to output
@@ -286,6 +308,22 @@ _.filter = function(arr, func) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+// assign _.reject to function expression that takes a param of an array and a function
+_.reject = function(arr, func) {
+    // empty array assigned to output
+    const output = [];
+    // iterate through array
+    for (let i = 0; i < arr.length; i++) {
+        // call func param for each element, it's index, and array
+        if (!func(arr[i], i, arr)) {
+            // push all elements that get false into output
+            output.push(arr[i]);
+        }
+    }
+    // return output
+    return output;
+};
 
 
 /** _.partition
