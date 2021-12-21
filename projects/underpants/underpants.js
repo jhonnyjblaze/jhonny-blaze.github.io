@@ -57,7 +57,7 @@ _.typeOf = function(value) {
     // check if value is null if so return null
     if (value === null) { return 'null'; }
     // check if value is Date if so return date
-    if (value instanceof Date) { return 'date';}
+   // if (value instanceof Date) { return 'date';}
     // otherwise return object
     else return 'object';
 };
@@ -193,6 +193,25 @@ _.contains = function(array, value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+// assign _.each to function expression that takes a param of a collection and a function
+_.each = function(coll, func) {
+    // if coll param is an array call func param once for each element in coll
+    if (Array.isArray(coll)) {
+        // iterate through coll elements
+        for (let i = 0; i < coll.length; i++) {
+            // call func param on each element
+            func(coll[i], i, coll);
+        }
+      // if coll is an object  
+    } else {
+            // iterate through coll
+            for (let key in coll) {
+                // call func param on each coll  item
+                func(coll[key], key, coll);
+            }
+    }
+};
 
 
 /** _.unique
