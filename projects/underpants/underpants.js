@@ -257,43 +257,40 @@ _.unique = function(arr) {
 *   use _.each in your implementation
 */
 
-/*
 // assign _.filter to function expression that takes a param of an array and a function
 _.filter = function(arr, func) {
     // assign empty array to output
     const output = [];
-    // iterate through array
-    console.log(output.push(_.each(arr, func)));
-    //console.log(output.push((arr)));
-    // for (let i = 0; i < arr.length; i++) {
-    //     // call func param for each element, it's index, and arr parameter
-    //     if (func(arr[i], i, arr)) {
-    //         // push all true elements into output array 
-    //         output.push(arr[i]);
-    //     }
-    // }
-    // return output
-    // return output;
-};
-*/
-
-
-
-// assign _.filter to function expression that takes a param of an array and a function
-_.filter = function(arr, func) {
-    // assign empty array to output
-    const output = [];
-    // iterate through array
-    for (let i = 0; i < arr.length; i++) {
-        // call func param for each element, it's index, and arr parameter
-        if (func(arr[i], i, arr)) {
-            // push all true elements into output array 
-            output.push(arr[i]);
+    // call _.each on the array
+    _.each(arr, function(el, i) {
+        // test function param called on each array element and index
+        if (func(el, i)) {
+            // if true push element into output array
+            output.push(el);
         }
-    }
+    });
     // return output
     return output;
 };
+
+
+
+
+// // assign _.filter to function expression that takes a param of an array and a function
+// _.filter = function(arr, func) {
+//     // assign empty array to output
+//     const output = [];
+//     // iterate through array
+//     for (let i = 0; i < arr.length; i++) {
+//         // call func param for each element, it's index, and arr parameter
+//         if (func(arr[i], i, arr)) {
+//             // push all true elements into output array 
+//             output.push(arr[i]);
+//         }
+//     }
+//     // return output
+//     return output;
+// };
 
 
 /** _.reject
@@ -428,6 +425,7 @@ _.pluck = function(arr, prop) {
     return _.map(arr, (arr => arr[prop]));    
 };
 
+
 /** _.every
 * Arguments:
 *   1) A collection
@@ -448,6 +446,36 @@ _.pluck = function(arr, prop) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+// assign _.every to function expression that takes a param of a collection and a function
+_.every = function(coll, func) {
+    let isTrue;
+    // if collection is an array
+    if (Array.isArray(coll)) {
+        // iterate through array elements
+        for (let i = 0; i < coll.length; i++) {
+            if (func === undefined && coll[i] === false) {
+                return false;                
+            } else { isTrue = true; }
+            // if call function param on every element of collection produces a false return false
+            if (!func(coll[i], i, coll)) {
+                return false;
+            // otherwise isTrue assigns true    
+            } else isTrue = true;       
+        }
+    } else {
+        for (let key in coll) {
+            if (func === undefined && coll[key] === false) {
+                return false;                
+            } else { isTrue = true; }
+
+            if (!func(coll[key], key, coll)) {
+                return false;
+            } else isTrue = true;
+        }
+    }
+    return isTrue;
+};
 
 
 /** _.some
@@ -471,6 +499,20 @@ _.pluck = function(arr, prop) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+// assign _.some to function expression that takes a param of a collection and a function
+_.some = function(coll, func) {
+    let isTrue;
+    if(Array.isArray(coll)) {
+        for (let i = 0; i < coll.length; i++) {
+            if (func(coll[i], i, coll)) {
+                isTrue = true;
+                return isTrue;
+            } else {
+                
+            }
+        }
+    }
+};
 
 /** _.reduce
 * Arguments:
