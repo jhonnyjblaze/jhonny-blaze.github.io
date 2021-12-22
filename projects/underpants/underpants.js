@@ -382,7 +382,9 @@ _.partition = function(arr, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-// assign _.partition to function expression that takes a param of an array and a function
+/*
+
+// assign _.map to function expression that takes a param of a collection and a function
 _.map = function(coll, func) {
     // assign output to empty array
     const output = [];
@@ -403,6 +405,19 @@ _.map = function(coll, func) {
             output.push(func(coll[key], key, coll));
         }
     }
+    // return output
+    return output;
+};
+
+*/
+
+// assign _.map to function expression that takes a param of a collection and a function
+_.map = function(coll, func) {
+    // assign output to empty array
+    const output = [];
+    _.each(coll, function(el, i) {
+        output.push(func(el, i));
+    });
     // return output
     return output;
 };
