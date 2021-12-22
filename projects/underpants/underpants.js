@@ -422,6 +422,11 @@ _.map = function(coll, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+// assign _.pluck to function expression that takes a param of an array of objects and a property
+_.pluck = function(arr, prop) {
+    // return _.map called on the _.pluck function params
+    return _.map(arr, (arr => arr[prop]));    
+};
 
 /** _.every
 * Arguments:
