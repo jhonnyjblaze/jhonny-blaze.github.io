@@ -385,6 +385,31 @@ _.partition = function(arr, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+// assign _.partition to function expression that takes a param of an array and a function
+_.map = function(coll, func) {
+    // assign output to empty array
+    const output = [];
+    // check if collection is an array
+    if (Array.isArray(coll)) {
+        // if true iterate through array
+        for (let i = 0; i < coll.length; i++) {
+            // push value of calling function param on the array param into output
+            output.push(func(coll[i], i, coll));
+        }
+        // return output
+        return output;
+    // if not true then collection is an object
+    } else {
+        // iterate through object
+        for (let key in coll) {
+            // push value of calling function param on the object param into output
+            output.push(func(coll[key], key, coll));
+        }
+    }
+    // return output
+    return output;
+};
+
 
 /** _.pluck
 * Arguments:
