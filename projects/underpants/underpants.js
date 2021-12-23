@@ -262,9 +262,9 @@ _.filter = function(arr, func) {
     // assign empty array to output
     const output = [];
     // call _.each on the array
-    _.each(arr, function(el, i) {
+    _.each(arr, function(el, i, c) {
         // test function param called on each array element and index
-        if (func(el, i)) {
+        if (func(el, i, c)) {
             // if true push element into output array
             output.push(el);
         }
@@ -415,7 +415,9 @@ _.map = function(coll, func) {
 _.map = function(coll, func) {
     // assign output to empty array
     const output = [];
+    // call function for each element in collection
     _.each(coll, function(el, i) {
+        // push each element into output array
         output.push(func(el, i));
     });
     // return output
@@ -525,17 +527,16 @@ _.every = function(coll, func) {
 
 // assign _.some to function expression that takes a param of a collection and a function
 _.some = function(coll, func) {
-    let isTrue;
-    if(Array.isArray(coll)) {
-        for (let i = 0; i < coll.length; i++) {
-            if (func(coll[i], i, coll)) {
-                isTrue = true;
-                return isTrue;
-            } else {
-                
-            }
+    let isTrue = false;
+    // call function for each element in collection
+    _.each(coll, function(el, i) {
+        // push each element into output array
+        if (func(el, i)) {
+            isTrue = true;
+            return isTrue;
         }
-    }
+    });
+    return isTrue;
 };
 
 /** _.reduce
