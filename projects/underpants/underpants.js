@@ -416,9 +416,9 @@ _.map = function(coll, func) {
     // assign output to empty array
     const output = [];
     // call function for each element in collection
-    _.each(coll, function(el, i) {
+    _.each(coll, function(el, i, c) {
         // push each element into output array
-        output.push(func(el, i));
+        output.push(func(el, i, c));
     });
     // return output
     return output;
