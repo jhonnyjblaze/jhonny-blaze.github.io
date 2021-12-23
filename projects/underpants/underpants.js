@@ -475,6 +475,21 @@ _.pluck = function(arr, prop) {
 
 // assign _.every to function expression that takes a param of a collection and a function
 _.every = function(coll, func) {
+    let isTrue = false;
+    _.each(coll, function(el, i , c) {
+        if (!el) {
+            return isTrue;
+        }
+        else isTrue = true;
+    });
+    return isTrue;
+};
+
+
+/*
+
+// assign _.every to function expression that takes a param of a collection and a function
+_.every = function(coll, func) {
     let isTrue;
     // if collection is an array
     if (Array.isArray(coll)) {
@@ -503,6 +518,8 @@ _.every = function(coll, func) {
     return isTrue;
 };
 
+*/
+
 
 /** _.some
 * Arguments:
@@ -529,12 +546,14 @@ _.every = function(coll, func) {
 _.some = function(coll, func) {
     let isTrue = false;
     // call function for each element in collection
-    _.each(coll, function(el, i) {
-        // push each element into output array
-        if (func(el, i)) {
-            isTrue = true;
+    _.each(coll, function(el, i, c) {
+        // if element is not true 
+        if (!el) {
+            // assign isTrue to false
             return isTrue;
+        // otherwise isTrue is true
         }
+        else isTrue = true;
     });
     return isTrue;
 };
