@@ -211,6 +211,7 @@ _.each = function(coll, func) {
                 func(coll[key], key, coll);
             }
     }
+    return coll;
 };
 
 
@@ -311,13 +312,13 @@ _.reject = function(arr, func) {
     // empty array assigned to rejected
     const rejected = [];
     // iterate through array
-    for (let i = 0; i < arr.length; i++) {
-        // call func param for each element, it's index, and array
-        if (!func(arr[i], i, arr)) {
-            // push all elements that get false into rejected
-            rejected.push(arr[i]);
+    _.each(arr, function(el, i, c) {
+        // test function param called on each array element and index
+        if (!func(el, i, c)) {
+            // if true push element into output array
+            rejected.push(el);
         }
-    }
+    });
     // return rejected
     return rejected;
 };
@@ -472,7 +473,42 @@ _.pluck = function(arr, prop) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+/*
+// assign _.each to function expression that takes a param of a collection and a function
+_.each = function(coll, func) {
+    // if coll param is an array call func param once for each element in coll
+    if (Array.isArray(coll)) {
+        // iterate through coll elements
+        for (let i = 0; i < coll.length; i++) {
+            // call func param on each element, it's index, <collection>
+            func(coll[i], i, coll);
+        }
+      // if coll is an object  
+    } else {
+            // iterate through coll
+            for (let key in coll) {
+                // call func param on each property's value, it's key, <collection>
+                func(coll[key], key, coll);
+            }
+    }
+};
+*/
 
+// assign _.every to function expression that takes a param of a collection and a function
+_.every = function(coll, func) {
+    let result = true;
+    _.each(coll, function(e) {
+        console.log(func(e));
+        if (console.log(func(e)) === false) {
+            result = false;
+            return result;
+        }
+        else return result; 
+    });
+};
+
+
+/*
 // assign _.every to function expression that takes a param of a collection and a function
 _.every = function(coll, func) {
     let isTrue = false;
@@ -484,7 +520,7 @@ _.every = function(coll, func) {
     });
     return isTrue;
 };
-
+*/
 
 /*
 
@@ -576,6 +612,11 @@ _.some = function(coll, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+// assign _.reduce to function expression that accepts params of an array, a function, and a seed
+_.reduce = function(arr, func, seed) {
+    
+};
 
 
 /** _.extend
