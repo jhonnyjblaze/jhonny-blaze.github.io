@@ -353,21 +353,11 @@ _.partition = function(arr, func) {
         // test function param called on each array element and index
         if (func(el, i, c)) {
             // if true push element into output array
-            output.push(el);
+            truthy.push(el);
+        } else {
+            falsy.push(el);
         }
     });
-    // iterate through input array
-    for (let i = 0; i < arr.length; i++) {
-        // if func call on element is true
-        if (func(arr[i], i, arr)) {
-            // push element into truthy
-            truthy.push(arr[i]);
-        // if func call on element is false
-        } else {
-            // push element into falsy
-            falsy.push(arr[i]);
-        }
-    }
     // unshift truthy and falsy arrays into output array
     output.unshift(truthy, falsy);
     // return output
