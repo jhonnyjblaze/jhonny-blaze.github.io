@@ -230,15 +230,14 @@ _.unique = function(arr) {
     // empty output array
     let output = [];
     // iterate through input array
-    for (let i = 0; i < arr.length; i++) {
-        // assign element to each array element
-        let element = arr[i];
-        // check if the element is not inside of the output array
-        if (output.indexOf(element) === -1) {
+    _.each(arr, function(el, i, c) {
+        // test function param called on each array element and index
+        if (output.indexOf(el) === -1) {
             // if not present push element into output array
-            output.push(element);
+            output.push(el);
         }
-    }
+    });
+    // return output
     return output;
 };
 
@@ -264,7 +263,7 @@ _.filter = function(arr, func) {
     const output = [];
     // call _.each on the array
     _.each(arr, function(el, i, c) {
-        // test function param called on each array element and index
+        // test function param called on each array element, index, and array
         if (func(el, i, c)) {
             // if true push element into output array
             output.push(el);
@@ -313,9 +312,9 @@ _.reject = function(arr, func) {
     const rejected = [];
     // iterate through array
     _.each(arr, function(el, i, c) {
-        // test function param called on each array element and index
+        // test function param called on each array element, index, and array
         if (!func(el, i, c)) {
-            // if true push element into output array
+            // if true push element into rejected array
             rejected.push(el);
         }
     });
@@ -349,6 +348,14 @@ _.partition = function(arr, func) {
     const output = [];
     const truthy = [];
     const falsy = [];
+
+    _.each(arr, function(el, i, c) {
+        // test function param called on each array element and index
+        if (func(el, i, c)) {
+            // if true push element into output array
+            output.push(el);
+        }
+    });
     // iterate through input array
     for (let i = 0; i < arr.length; i++) {
         // if func call on element is true
