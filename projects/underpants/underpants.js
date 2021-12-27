@@ -577,10 +577,24 @@ _.some = function(coll, func) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+
 // assign _.reduce to function expression that accepts params of an array, a function, and a seed
 _.reduce = function(arr, func, seed) {
-    
+    // assign sum to seed
+    let sum = seed;
+    // iterate through every element 
+	for (let i = 0; i < arr.length; i++) {
+        // if sum is undefined assign sum to first value of collection
+        if (sum === undefined) { sum = arr[0]; }
+        // assign current element to const element
+        const el = arr[i];
+        // assign sum to the return value of the function call after each iteration
+		sum = func(sum, el, i);
+	}
+    // return sum
+	return sum;   
 };
+
 
 
 /** _.extend
@@ -598,9 +612,10 @@ _.reduce = function(arr, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-// assign _.extend to function expression that accepts params of an object, and an object
-_.extend = function(obj1, obj2) {
-    
+// assign _.extend to function expression that accepts params of an object, and an object, and possibly more objects
+_.extend = function(obj1, obj2, Arguments) {
+    // return obj1 updated with the properties of all other argumenets passed into the function
+    return Object.assign(obj1, obj2, Arguments);
 };
 
 
