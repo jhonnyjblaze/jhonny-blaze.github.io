@@ -211,7 +211,6 @@ _.each = function(coll, func) {
                 func(coll[key], key, coll);
             }
     }
-    return coll;
 };
 
 
@@ -230,7 +229,7 @@ _.unique = function(arr) {
     // empty output array
     let output = [];
     // iterate through input array
-    _.each(arr, function(el, i, c) {
+    _.each(arr, function(el) {
         // test function param called on each array element and index
         if (output.indexOf(el) === -1) {
             // if not present push element into output array
@@ -437,7 +436,7 @@ _.map = function(coll, func) {
 
 // assign _.pluck to function expression that takes a param of an array of objects and a property
 _.pluck = function(arr, prop) {
-    // return _.map called on the _.pluck function params
+    // return the value of _.map called on the _.pluck arr param
     return _.map(arr, (arr => arr[prop]));    
 };
 
