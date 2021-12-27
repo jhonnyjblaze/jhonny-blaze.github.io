@@ -263,7 +263,7 @@ _.filter = function(arr, func) {
     const output = [];
     // call _.each on the array
     _.each(arr, function(el, i, c) {
-        // test function param called on each array element, index, and array
+        // test function param called on each array element and index
         if (func(el, i, c)) {
             // if true push element into output array
             output.push(el);
@@ -312,7 +312,7 @@ _.reject = function(arr, func) {
     const rejected = [];
     // iterate through array
     _.each(arr, function(el, i, c) {
-        // test function param called on each array element, index, and array
+        // test function param called on each array element and index
         if (!func(el, i, c)) {
             // if true push element into rejected array
             rejected.push(el);
@@ -348,13 +348,14 @@ _.partition = function(arr, func) {
     const output = [];
     const truthy = [];
     const falsy = [];
-
+    // iterate through array
     _.each(arr, function(el, i, c) {
         // test function param called on each array element and index
         if (func(el, i, c)) {
-            // if true push element into output array
+            // if true push element into truthy array
             truthy.push(el);
         } else {
+            // if not true push element into falsy array
             falsy.push(el);
         }
     });
@@ -470,88 +471,40 @@ _.pluck = function(arr, prop) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-/*
-// assign _.each to function expression that takes a param of a collection and a function
-_.each = function(coll, func) {
+
+
+
+// assign _.every to function expression that takes a param of a collection and a function
+_.every = function(coll, func) {
+    // if there is no func paramater assign func to _.identity
+    if (func === undefined) { func = _.identity; }
+    // assign result to true
+    let result = true;
     // if coll param is an array call func param once for each element in coll
     if (Array.isArray(coll)) {
         // iterate through coll elements
         for (let i = 0; i < coll.length; i++) {
             // call func param on each element, it's index, <collection>
-            func(coll[i], i, coll);
+            if (!func(coll[i], i, coll)) {
+               // if value does not pass the test short circuit and return false  
+               return false;
+            }
         }
       // if coll is an object  
     } else {
             // iterate through coll
             for (let key in coll) {
                 // call func param on each property's value, it's key, <collection>
-                func(coll[key], key, coll);
+                if (!func(coll[key], key, coll)) {
+                    // if value does not pass the test short circuit and return false 
+                    return false;
+                }
             }
     }
-};
-*/
-
-// assign _.every to function expression that takes a param of a collection and a function
-_.every = function(coll, func) {
-    let result = true;
-    _.each(coll, function(e) {
-        console.log(func(e));
-        if (console.log(func(e)) === false) {
-            result = false;
-            return result;
-        }
-        else return result; 
-    });
+    // return result
+    return result;
 };
 
-
-/*
-// assign _.every to function expression that takes a param of a collection and a function
-_.every = function(coll, func) {
-    let isTrue = false;
-    _.each(coll, function(el, i , c) {
-        if (!el) {
-            return isTrue;
-        }
-        else isTrue = true;
-    });
-    return isTrue;
-};
-*/
-
-/*
-
-// assign _.every to function expression that takes a param of a collection and a function
-_.every = function(coll, func) {
-    let isTrue;
-    // if collection is an array
-    if (Array.isArray(coll)) {
-        // iterate through array elements
-        for (let i = 0; i < coll.length; i++) {
-            if (func === undefined && coll[i] === false) {
-                return false;                
-            } else { isTrue = true; }
-            // if call function param on every element of collection produces a false return false
-            if (!func(coll[i], i, coll)) {
-                return false;
-            // otherwise isTrue assigns true    
-            } else isTrue = true;       
-        }
-    } else {
-        for (let key in coll) {
-            if (func === undefined && coll[key] === false) {
-                return false;                
-            } else { isTrue = true; }
-
-            if (!func(coll[key], key, coll)) {
-                return false;
-            } else isTrue = true;
-        }
-    }
-    return isTrue;
-};
-
-*/
 
 
 /** _.some
