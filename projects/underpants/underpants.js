@@ -50,7 +50,7 @@ _.identity = function (value) {
 // assign _.typeOf to function expression that takes a param of any value
 _.typeOf = function(value) {
     // check if typeof value is not an object, if not then return the typeof value
-    if (typeof(value) !== 'object') return typeof(value);
+    if (typeof(value) !== 'object') { return typeof(value); }
     // conditions for complex data types typeof -> object, array, null, or date object
     // check if value is an array if so return array
     if (Array.isArray(value)) { return 'array'; } 
@@ -121,7 +121,7 @@ _.last = function(array, number) {
     // if number param is greater than array.length return array
     else if (number > array.length) { return array; }
     // otherwise return an equal number of array elements to the number param beginning at last index
-    else return array.slice(-number);
+    else { return array.slice(-number); }
 };
 
 
@@ -174,7 +174,7 @@ _.indexOf = function(array, value) {
 // assign _.contains to function expression that takes a param of an array and a value
 _.contains = function(array, value) {
     // return true if array contains value and false otherwise using the ternary operator
-    return (_.indexOf(array, value) > 0 ? true : false);    
+    return (_.indexOf(array, value) >= 0 ? true : false);    
 };
 
 
@@ -584,9 +584,11 @@ _.reduce = function(arr, func, seed) {
     let sum = seed;
     // assign i to 0
     let i = 0; 
-    // if sum is undefined assign sum to first value of collection
-    if (sum === undefined) { 
+    // if sum is undefined 
+    if (sum === undefined) {
+        // assign sum to first value of collection 
         sum = arr[0]; 
+        // add 1 to i
         i++;
     }
     // iterate through every element 
