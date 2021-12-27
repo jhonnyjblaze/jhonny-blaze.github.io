@@ -530,18 +530,32 @@ _.every = function(coll, func) {
 
 // assign _.some to function expression that takes a param of a collection and a function
 _.some = function(coll, func) {
-    let isTrue = false;
-    // call function for each element in collection
-    _.each(coll, function(el, i, c) {
-        // if element is not true 
-        if (!el) {
-            // assign isTrue to false
-            return isTrue;
-        // otherwise isTrue is true
+    // if there is no func paramater assign func to _.identity
+    if (func === undefined) { func = _.identity; }
+    // assign result to false
+    let result = false;
+    // if coll param is an array call func param once for each element in coll
+    if (Array.isArray(coll)) {
+        // iterate through coll elements
+        for (let i = 0; i < coll.length; i++) {
+            // call func param on each element, it's index, <collection>
+            if (func(coll[i], i, coll)) {
+               // if value does pass the test short circuit and return true  
+               return true;
+            }
         }
-        else isTrue = true;
-    });
-    return isTrue;
+      // if coll is an object  
+    } else {
+            // iterate through coll
+            for (let key in coll) {
+                // call func param on each property's value, it's key, <collection>
+                if (func(coll[key], key, coll)) {
+                    // if value does pass the test short circuit and return true 
+                    return true;
+                }
+            }
+    }
+    return result;
 };
 
 /** _.reduce
@@ -583,6 +597,12 @@ _.reduce = function(arr, func, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+// assign _.extend to function expression that accepts params of an object, and an object
+_.extend = function(obj1, obj2) {
+    
+};
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
