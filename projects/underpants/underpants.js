@@ -582,10 +582,15 @@ _.some = function(coll, func) {
 _.reduce = function(arr, func, seed) {
     // assign sum to seed
     let sum = seed;
+    // assign i to 0
+    let i = 0; 
+    // if sum is undefined assign sum to first value of collection
+    if (sum === undefined) { 
+        sum = arr[0]; 
+        i++;
+    }
     // iterate through every element 
-	for (let i = 0; i < arr.length; i++) {
-        // if sum is undefined assign sum to first value of collection
-        if (sum === undefined) { sum = arr[0]; }
+	for (; i < arr.length; i++) {
         // assign current element to const element
         const el = arr[i];
         // assign sum to the return value of the function call after each iteration
