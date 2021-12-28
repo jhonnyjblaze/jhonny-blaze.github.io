@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -16,20 +16,54 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./jhonny-blaze.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
 var maleCount = function(array) {
-
+    // assign the variable named males to filter function
+    let males = _.filter(array, function(customer) {
+        // return array of customers that are male
+        return customer.gender === 'male';
+    });
+    // return the array length
+    return males.length;
 };
 
-var femaleCount;
+var femaleCount = function(array) {
+    // use the reduce function to return the total number of female customers
+    let females = _.reduce(array, function(accumulator, current, index) {
+        // if current customer object is female
+        if (current.gender === 'female') {
+            // add 1 to accumulator
+            accumulator += 1;
+        }
+        // return accumulator
+        return accumulator;
+    }, 0);
+    return females;
+};
 
-var oldestCustomer;
+var oldestCustomer = function(array) {
+    // assign variable named oldest to array with sort method called upon it
+    let oldest = array.sort(function(a, b) { 
+        // return array sorted by value of each object age property in descending order
+        return b.age - a.age 
+    })
+    // return the name value of the object in the zero index
+    return oldest[0].name;
+};
 
-var youngestCustomer;
+var youngestCustomer = function(array) {
+    // assign variable named youngest to array with sort method called upon it
+    let youngest = array.sort(function(a, b) { 
+        // return array sorted by value of each object age property in ascending order
+        return a.age - b.age 
+    })
+    // return the name value of the object in the zero index
+    return youngest[0].name;
+};
 
 var averageBalance;
 
