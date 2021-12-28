@@ -2,8 +2,19 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+// if step is not defined then it equals 1
+function range(start, stop, step = 1) {
+  // assign variable named range to empty array literal
+  let range = [];
+  // check if start strictly equals stop if so return range
+  if (start === stop) { return range; }
+  // check if start is less than stop
+  if (start < stop) {
+    // if true assign range to Array.from sequence generator (range)
+    range = Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+  }
+  // return range
+  return range;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
