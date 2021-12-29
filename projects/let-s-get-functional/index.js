@@ -66,16 +66,24 @@ var youngestCustomer = function(array) {
 };
 
 var averageBalance = function(array) {
+    // assign variable named output to empty array literal
     let output = [];
-    for (let i = 0; i < array.length; i++){
+    // iterate through input array
+    for (let i = 0; i < array.length; i++) {
+        // push each element transformed from string to number into output array
         output.push(1 * (array[i].balance.slice(1, array.length + 1).replace(/,/g,'')));
     }
-    //console.log(output);
-    let sum = output.reduce(function(a, b){
+    // assign variable named sum to _.reduce called on output array
+    let sum = _.reduce(output, function(a, b){
+        // return previous number plus current number after each iteration
         return a + b;
     }, 0);
-    return sum / output.length;
+    // assign variable named avg to sum divided by length of output array
+    let avg = sum / output.length;
+    // return avg
+    return avg;
 };
+
 
 var firstLetterCount;
 
