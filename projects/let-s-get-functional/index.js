@@ -50,7 +50,7 @@ var oldestCustomer = function(array) {
     let oldest = array.sort(function(a, b) { 
         // return array sorted by value of each object age property in descending order
         return b.age - a.age 
-    })
+    });
     // return the name value of the object in the zero index
     return oldest[0].name;
 };
@@ -60,10 +60,11 @@ var youngestCustomer = function(array) {
     let youngest = array.sort(function(a, b) { 
         // return array sorted by value of each object age property in ascending order
         return a.age - b.age 
-    })
+    });
     // return the name value of the object in the zero index
     return youngest[0].name;
 };
+
 
 var averageBalance = function(array) {
     // assign variable named output to empty array literal
@@ -85,7 +86,21 @@ var averageBalance = function(array) {
 };
 
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter) {
+    // assign variable named count to 0
+    let count = 0;
+    // iterate through each array element object
+    _.forEach(array, function(customer) {
+        // check if zero index of object name property lowercased
+        // strictly equals the input letter lowercased
+        if (customer.name[0].toLowerCase() === letter.toLowerCase()) {
+            // if true add one to count
+            count += 1;
+        }
+  })
+  // return count
+  return count;
+};
 
 var friendFirstLetterCount;
 
