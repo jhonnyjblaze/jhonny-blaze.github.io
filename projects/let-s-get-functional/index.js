@@ -177,7 +177,35 @@ var friendsCount = function(array, customerName) {
     return output;
 };
 
-var topThreeTags;
+
+// assign the annonymous function expression to the variable named topThreeTags
+var topThreeTags = function(array) {
+    // assing empty array literal to variable named tags
+    let tags = [];
+    // assing empty array literal to variable named testedTags
+    let testedTags = [];
+    // assing empty array literal to variable named test
+    let test = [];
+    // assing empty array literal to variable named topTags
+    let topTags = [];
+    // iterate through input array param
+    for (let i = 0; i < array.length; i++) {
+      // assign tags to the tags property of each array element object
+      tags = array[i].tags;
+      // iterate through the tags array
+      for (let j = 0; j < tags.length; j++) {
+        // push each tag into the testedTags array
+        testedTags.push(tags[j]);      
+      }
+      // assign test to the testedTags array filtered for duplicates
+      test = _.filter(testedTags, (item, index) => index !== testedTags.indexOf(item));
+      // assign topTags to the test array filtered for duplicates
+      topTags = _.filter(test, (item, index) => index !== test.indexOf(item));
+    }
+    // return topTags array
+    return topTags;
+  };
+
 
 var genderCount;
 
