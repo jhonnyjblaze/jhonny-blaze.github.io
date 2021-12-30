@@ -21,6 +21,8 @@ var _ = require('underbar');
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
+
+// assign the annonymous function expression to the variable named maleCount
 var maleCount = function(array) {
     // assign the variable named males to filter function
     let males = _.filter(array, function(customer) {
@@ -31,6 +33,8 @@ var maleCount = function(array) {
     return males.length;
 };
 
+
+// assign the annonymous function expression to the variable named femaleCount
 var femaleCount = function(array) {
     // use the reduce function to return the total number of female customers
     let females = _.reduce(array, function(accumulator, current, index) {
@@ -41,10 +45,13 @@ var femaleCount = function(array) {
         }
         // return accumulator
         return accumulator;
+    // Set seed to 0    
     }, 0);
     return females;
 };
 
+
+// assign the annonymous function expression to the variable named oldestCustomer
 var oldestCustomer = function(array) {
     // assign variable named oldest to array with sort method called upon it
     let oldest = array.sort(function(a, b) { 
@@ -55,6 +62,8 @@ var oldestCustomer = function(array) {
     return oldest[0].name;
 };
 
+
+// assign the annonymous function expression to the variable named youngestCustomer
 var youngestCustomer = function(array) {
     // assign variable named youngest to array with sort method called upon it
     let youngest = array.sort(function(a, b) { 
@@ -66,6 +75,7 @@ var youngestCustomer = function(array) {
 };
 
 
+// assign the annonymous function expression to the variable named averageBalance
 var averageBalance = function(array) {
     // assign variable named output to empty array literal
     let output = [];
@@ -86,13 +96,14 @@ var averageBalance = function(array) {
 };
 
 
+// assign the annonymous function expression to the variable named firstLetterCount
 var firstLetterCount = function(array, letter) {
     // assign variable named count to 0
     let count = 0;
     // iterate through each array element object
     _.forEach(array, function(customer) {
-        // check if zero index of object name property lowercased
-        // strictly equals the input letter lowercased
+        /* check if zero index of object name property lowercased is
+           strictly equal to the input letter lowercased */
         if (customer.name[0].toLowerCase() === letter.toLowerCase()) {
             // if true add one to count
             count += 1;
@@ -102,7 +113,40 @@ var firstLetterCount = function(array, letter) {
   return count;
 };
 
-var friendFirstLetterCount;
+
+// assign the annonymous function expression to the variable named friendFirstLetterCount
+var friendFirstLetterCount = function(array, customerName, letter) {
+    // assign 0 to variable named count
+    let count = 0;
+    // assign empty object literals to variables named customer and customerFriend
+    let customer = {};
+    let customerFriend = {};
+    // assign empty array literal to variable named test
+    let test = [];
+    // iterarte through the input for the array param
+    for (let i = 0; i < array.length; i++) {
+      // assign customer to the array object
+      customer = array[i];
+      // check if input for customerName strictly equals the value at the customer name property
+      if (customerName === customer.name) {
+        // if true assign test to the value at the customer friends property
+        test = customer.friends;
+        // iterate through the test array
+        for (let j = 0; j < test.length; j++) {
+          customerFriend = test[j];
+          /* check if the zero index of the value at the name property for customerFriend 
+             lowercased stritcly equals the input letter lowercased */
+          if (customerFriend.name[0].toLowerCase() === letter.toLowerCase()) {
+            // if true add 1 to the value of count
+            count += 1;
+          }
+        }    
+      }
+    }
+    // return count
+    return count;  
+  };
+
 
 var friendsCount;
 
