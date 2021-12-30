@@ -207,7 +207,46 @@ var topThreeTags = function(array) {
   };
 
 
-var genderCount;
+// assign the annonymous function expression to the variable named genderCount
+var genderCount = function(array) {
+  /* assign an object with female prop and 0 value, male prop and 0 value, and non-binary prop and 0 value 
+     to a variable called result */
+  let result = { female: 0, male: 0, 'non-binary': 0 };
+  // assign 0 to a variable named countFem
+  let countFem = 0;
+  // assign 0 to a variable named countMale
+  let countMale = 0;
+  // assign 0 to a variable named countNonBi
+  let countNonBi = 0;
+  // declare a variable named gender
+  let gender;
+  // iterate through input array 
+  for (let i = 0; i < array.length; i++) {
+    // assign each value for the gender property on the input array element object to gender
+    gender = array[i].gender;
+    /* if gender strictly equals female add 1 to the value of countFem and assign the total to the value 
+       for the result.female prop */
+    if (gender === 'female') {
+        countFem += 1;
+        result.female = countFem;
+    }
+    /* if gender strictly equals male add 1 to the value of countMale and assign the total to the value 
+       for the result.male prop */
+    if (gender === 'male') {
+        countMale += 1;
+        result.male = countMale;
+    }
+    /* if gender strictly equals non-binary add 1 to the value of countNonBi and assign the total to the value 
+       for the result['non-binary'] prop */
+    if (gender === 'non-binary') {
+        countNonBi += 1;
+        result['non-binary'] = countNonBi;
+    } 
+  }
+  // return result
+  return result;
+};
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
