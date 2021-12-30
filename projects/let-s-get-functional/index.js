@@ -148,7 +148,34 @@ var friendFirstLetterCount = function(array, customerName, letter) {
   };
 
 
-var friendsCount;
+// assign the annonymous function expression to the variable named friendsCount
+var friendsCount = function(array, customerName) {
+    // assing empty array literal to variable named output
+    let output = [];
+    // assign empty object literal to variable named customer
+    let customer = {};
+    // iterarte through the input for the array param
+    for (let i = 0; i < array.length; i++) {
+      // assign customer to the array object
+      customer = array[i];
+      // check if value of name property of each customer does not strictly equals input for customerName param
+      if (customer.name !== customerName) {
+        // if true iterate through array value of friends property on customer object
+        for (let j = 0; j < customer.friends.length; j++) {
+          /* check if name value of each element of friends property on customer object strictly equals input 
+             for customerName param */
+          if (customer.friends[j].name  === customerName) {
+            // if true push the name value of the customer object into output
+            output.push(customer.name);
+          }
+        }
+      }
+    }
+    // sort output
+    output.sort();
+    // return output
+    return output;
+};
 
 var topThreeTags;
 
