@@ -6,10 +6,13 @@
 // factorial(5);  // 120
 var factorial = function(n) {
   // base
+  // if n is strictly equal to 1 or 0 return 1
   if (n === 1 || n === 0) {
     return 1;
+    // if n < 0 return null 
   } else if (n < 0) return null;
   // recursion
+  // return n * factorial(n - 1)
   return n * factorial(n - 1);
 };
 
@@ -27,12 +30,55 @@ factorial(2)
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
+  // base
+  // check if length of input array is 1
+  if (array.length === 1) {
+    // return value at 0 index if true
+    return array[0];
+    // check if length of input array is 0 and return 0 if true
+  } else if (array.length === 0) return 0;
+
+  // recursion
+  // return value at 0 index + sum() called on the array with that value removed
+  return array[0] + sum(array.slice(1));
 };
+
+/*
+sum([1, 2, 3, 4, 5, 6])
+// FALSE // return 1 + sum([2, 3, 4, 5, 6])
+sum([2, 3, 4, 5, 6])
+// FALSE // return 1 + 2 + sum([3, 4, 5, 6])
+sum([3, 4, 5, 6])
+// FALSE // return 1 + 2 + 3 + sum([4, 5, 6])
+sum([4, 5, 6])
+// FALSE // return 1 + 2 + 3 + 4 + sum([5, 6])
+sum([5, 6])
+// FALSE // return 1 + 2 + 3 + 4 + 5 + sum([6])
+sum([6])
+// TRUE // return 1 + 2 + 3 + 4 + 5 + 6 => 21
+*/
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  // base
+
+
+  // recursion
 };
+
+/*
+sum([1,[2,3],[[4]],5])
+// FALSE // return 5 * factorial(4)
+factorial(4)
+// FALSE // return 5 * 4 * factorial(3)
+factorial(3)
+// FALSE // return 5 * 4 * 3 * factorial(2)
+factorial(2)
+// FALSE // return 5 * 4 * 3 * 2 * factorial(1)
+*/
+
 
 // 4. Check if a number is even.
 var isEven = function(n) {
