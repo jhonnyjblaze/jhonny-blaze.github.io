@@ -21,8 +21,17 @@ function range(start, stop, step = 1) {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+// input Array param into sum function 
+function sum(arr) {
+  // assign 0 to variable named sum
+  let sum = 0;
+  // iterare the input Array
+  for(let i in arr) { 
+    // sum plus equals each value for each Array element
+    sum += arr[i];
+  }
+  // return sum
+  return sum;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
