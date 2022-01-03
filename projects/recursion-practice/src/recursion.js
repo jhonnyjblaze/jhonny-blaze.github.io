@@ -37,7 +37,6 @@ var sum = function(array) {
     return array[0];
     // check if length of input array is 0 and return 0 if true
   } else if (array.length === 0) return 0;
-
   // recursion
   // return value at 0 index + sum() called on the array with that value removed
   return array[0] + sum(array.slice(1));
@@ -63,25 +62,49 @@ sum([6])
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
   // base
-
+  // check if length of input array is 1
+  if (array.length === 1) {
+    // return value at 0 index if true
+    return array[0];
+    // check if length of input array is 0 and return 0 if true
+  } else if (array.length === 0) return 0;
 
   // recursion
+  
 };
 
 /*
-sum([1,[2,3],[[4]],5])
-// FALSE // return 5 * factorial(4)
-factorial(4)
-// FALSE // return 5 * 4 * factorial(3)
-factorial(3)
-// FALSE // return 5 * 4 * 3 * factorial(2)
-factorial(2)
-// FALSE // return 5 * 4 * 3 * 2 * factorial(1)
+arraySum([1, [2,3], [[4]], 5])
+// FALSE // return 1 + arraySum([[2,3], [[4]], 5])
+arraySum([[2,3], [[4]], 5])
+// FALSE // return 1 + 2 + arraySum([[3], [[4]], 5])
+arraySum([[3], [[4]], 5])
+// FALSE // return 1 + 2 + 3 + arraySum([[[4]], 5])
+arraySum([[[4]], 5])
+// FALSE // return 1 + 2 + 3 + 4 + arraySum([5])
+arraySum([5])
+// TRUE // return 1 + 2 + 3 + 4 + 5 => 15
 */
 
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  // base
+  // if n equals 0 return true
+  if (n === 0) return true;
+  // if n equals 1 return false
+  if (n === 1) return false;
+
+  // recursion
+  // if n is less than 0 
+  if (n < 0) {
+    // return isEven(n + 2)
+    return isEven(n + 2);
+    // if n is greater than 0
+  } else if (n > 0) {
+    // return isEven(n - 2)
+    return isEven(n - 2);
+  }
 };
 
 // 5. Sum all integers below a given integer.
