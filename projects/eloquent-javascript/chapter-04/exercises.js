@@ -38,16 +38,36 @@ function sum(arr) {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+// No clue why these solution do not pass
 
+function reverseArray(arr) {
+  // assign variable named output to in place reverse of input Array
+  let output = arr.reverse();
+  // return output
+  return output;
+
+  // let output = [];
+  // for (let i = arr.length - 1; i > 0; i -= 1) {
+  //   // removes the first element of array
+  //   arr.shift();
+  //   // adds current index to the end of the array
+  //   arr.push(i);
+  //   // assigns current value of arr to output
+  //   output = arr;
+  // }
+  // // returns output
+  // return output;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(arr) {
+  // assign variable named output to in place reverse of input Array
+  let output = arr.reverse();
+  // return output
+  return output;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

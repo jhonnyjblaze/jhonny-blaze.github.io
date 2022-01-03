@@ -50,7 +50,7 @@ describe('Eloquent JavaScript', function () {
         expect(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])).to.deep.equal([0, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
       });
       it("should have no side effects", function () {
-        const inputArray = [1, 2, 3]
+        const inputArray = [1, 2, 3];
         expect(reverseArray(inputArray)).to.deep.equal([3, 2, 1]);
         expect(inputArray).to.deep.equal([1, 2, 3]);
       });
