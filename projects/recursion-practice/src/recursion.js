@@ -231,6 +231,7 @@ exponent(4, -1)
 exponent(4, 0)
 // FALSE // return 4 / 4 / 4 / exponent(4, 1)
 exponent(4, 1)
+// TRUE // return 4 / 4 / 4 / 4
 /
 */
 
@@ -240,6 +241,20 @@ exponent(4, 1)
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  // base case
+  // if n equals 0
+  if (n === 0) {
+    // return false
+    return false;
+    // if n equals 2 or 1
+  } else if (n === 2 || n === 1) {
+    // return true
+    return true;
+  }
+  
+  // recursion
+  // return powerOfTwo(n / 2);
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
