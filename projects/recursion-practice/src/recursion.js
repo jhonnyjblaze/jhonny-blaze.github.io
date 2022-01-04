@@ -75,7 +75,7 @@ var arraySum = function(array) {
 
 /*
 arraySum([1, [2,3], [[4]], 5])
-// FALSE // return 1 + arraySum([[2,3], [[4]], 5])
+// FALSE // return 4 + arraySum([[2,3], [[4]], 5])
 arraySum([[2,3], [[4]], 5])
 // FALSE // return 1 + 2 + arraySum([[3], [[4]], 5])
 arraySum([[3], [[4]], 5])
@@ -101,7 +101,7 @@ var isEven = function(n) {
     // return isEven(n + 2)
     return isEven(n + 2);
     // if n is greater than 0
-  } else if (n > 0) {
+  } else {
     // return isEven(n - 2)
     return isEven(n - 2);
   }
@@ -111,7 +111,39 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  // base
+  // if n equals 2 return 1
+  if (n === 2) return 1;
+  // if n equals 1, -1, or 0 return 0
+  if (n === 1 || n === -1 || n === 0) return 0;
+ 
+  // recursion
+  // if n is less than 0
+  if (n < 0) { 
+    // return (n + 1) + sumBelow(n + 1); 
+    return (n + 1) + sumBelow(n + 1); 
+    // otherwise
+  } else { 
+    // (n - 1) + sumBelow(n - 1); 
+    return (n - 1) + sumBelow(n - 1); 
+  }
 };
+
+
+/*
+sumBelow(7)
+// FALSE // return 6 + sumBelow(6)
+sumBelow(6)
+// FALSE // return 6 + 5 + sumBelow(5)
+sumBelow(5)
+// FALSE // return 6 + 5 + 4 + sumBelow(4)
+sumBelow(4)
+// FALSE // return 6 + 5 + 4 + 3 + sumBelow(3)
+sumBelow(3)
+// FALSE // return 6 + 5 + 4 + 3 + 2 + sumBelow(2)
+sumBelow(2)
+// TRUE // return 6 + 5 + 4 + 3 + 2 + 1 => 21
+*/
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
