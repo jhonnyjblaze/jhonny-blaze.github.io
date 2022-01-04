@@ -4,7 +4,7 @@
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
-var factorial = function(n) {
+var factorial = (n) => {
   // base case
   // if n is strictly equal to 1 or 0 return 1
   if (n === 1 || n === 0) {
@@ -29,7 +29,7 @@ factorial(2)
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = (array) => {
   // base
   // check if length of input array is 1
   if (array.length === 1) {
@@ -60,7 +60,7 @@ sum([6])
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
+var arraySum = (array) => {
   // base case
   // check if length of input array is 1
   if (array.length === 1) {
@@ -88,7 +88,7 @@ arraySum([5])
 
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = (n) => {
   // base case
   // if n equals 0 return true
   if (n === 0) return true;
@@ -110,7 +110,7 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+var sumBelow = (n) => {
   // base case
   // if n equals 2 return 1
   if (n === 2) return 1;
@@ -147,7 +147,7 @@ sumBelow(2)
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = (x, y) => {
   // assign variable named output to empty Array literal
   let output = [];
   
@@ -191,7 +191,7 @@ range(7, 9)
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = (base, exp) => {
   // base case
   // if exp equals 0
   if (exp === 0) {
@@ -240,7 +240,7 @@ exponent(4, 1)
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = (n) => {
   // base case
   // if n equals 0
   if (n === 0) {
@@ -258,13 +258,13 @@ var powerOfTwo = function(n) {
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = (string) => {
   // base case
   // if string equals empty string
   if (string === '') {
     // return empty string
     return '';
-}
+  }
 
 // recursion
 // return the result of calling reverse on input string value 
