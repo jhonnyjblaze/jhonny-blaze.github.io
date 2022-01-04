@@ -148,7 +148,43 @@ sumBelow(2)
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+  // assign variable named output to empty Array literal
+  let output = [];
+  
+  // base
+  // if x equals y or if y subtracted from x equals 1 or -1 return output
+  if (x === y || x - y === -1 || x - y === 1) return output;
+  
+  // recursion
+  // if x is less than y
+  if (x < y) {
+    // push the sum of x + 1 into the output array
+    output.push(x + 1);
+    // return output concatenated with range called on input x + 1 and input y
+    return output.concat(range(x + 1, y));
+    // otherwise 
+  } else {
+    // push the sum of x - 1 into the output array
+    output.push(x - 1);
+    // return output concatenated with range called on input x - 1 and input y
+    return output.concat(range(x - 1, y));
+  }
 };
+
+/*
+range(2, 9)
+// FALSE // return [3]
+range(3, 9)
+// FALSE // return [3, 4]
+range(4, 9)
+// FALSE // return [3, 4, 5]
+range(5, 9)
+// FALSE // return [3, 4, 5, 6]
+range(6, 9)
+// FALSE // return [3, 4, 5, 6, 7]
+range(7, 9)
+// FALSE // return [3, 4, 5, 6, 7, 8]
+*/
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
