@@ -5,7 +5,7 @@
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
 var factorial = function(n) {
-  // base
+  // base case
   // if n is strictly equal to 1 or 0 return 1
   if (n === 1 || n === 0) {
     return 1;
@@ -61,7 +61,7 @@ sum([6])
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-  // base
+  // base case
   // check if length of input array is 1
   if (array.length === 1) {
     // return value at 0 index if true
@@ -89,7 +89,7 @@ arraySum([5])
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-  // base
+  // base case
   // if n equals 0 return true
   if (n === 0) return true;
   // if n equals 1 return false
@@ -111,7 +111,7 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  // base
+  // base case
   // if n equals 2 return 1
   if (n === 2) return 1;
   // if n equals 1, -1, or 0 return 0
@@ -151,7 +151,7 @@ var range = function(x, y) {
   // assign variable named output to empty Array literal
   let output = [];
   
-  // base
+  // base case
   // if x equals y or if y subtracted from x equals 1 or -1 return output
   if (x === y || x - y === -1 || x - y === 1) return output;
   
@@ -192,7 +192,48 @@ range(7, 9)
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // base case
+  // if exp equals 0
+  if (exp === 0) {
+    // return 1
+    return 1;
+    // if exp equals 1
+  } else if (exp === 1) {
+    // return the input for base
+    return base;
+  }
+  // recursion
+  // if exp is greater than 0
+  if (exp > 0) {
+  // return input for base * exponent(base, exp - 1); 
+    return base * exponent(base, exp - 1);
+    // if exp is less than 0
+  } else if (exp < 0) {
+      // return input for base / exponent(base, exp * -1 + 1);
+      return base / exponent(base, exp * -1 + 1);
+  }
 };
+
+/*
+exponent(4, 3)
+// FALSE // return 4 * exponent(4, 2)
+exponent(4, 2)
+// FALSE // return 4 * 4 * exponent(4, 1)
+exponent(4, 1)
+// TRUE // return 4 * 4 * 4 
+*/
+
+/*
+exponent(4, -2)
+// FALSE // return 4 / exponent(4, -1)
+exponent(4, -1)
+// FALSE // return 4 / 4 / exponent(4, 0)
+exponent(4, 0)
+// FALSE // return 4 / 4 / 4 / exponent(4, 1)
+exponent(4, 1)
+/
+*/
+
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
