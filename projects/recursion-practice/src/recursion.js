@@ -112,8 +112,6 @@ var isEven = (n) => {
 // sumBelow(7); // 21
 var sumBelow = (n) => {
   // base case
-  // if n equals 2 return 1
-  if (n === 2) return 1;
   // if n equals 1, -1, or 0 return 0
   if (n === 1 || n === -1 || n === 0) return 0;
  
@@ -347,20 +345,31 @@ var gcd = function(x, y) {
 
 var compareStr = function(str1, str2) {
   // base case
+  // check if the length of both input str1 and str2 equals 0
   if (str1.length === 0 && str2.length === 0) {
+    // return true
     return true;
   }
+  // check if the length of both input str1 and str2 equals 1 
+  // and the zero indexes of both input str1 and str2 are equal
   if (str1.length === 1 && str2.length === 1 && str1[0] === str2[0]) {
+    // return true
     return true;
   }
+  // check if the zero indexes of both input str1 and str2 are unequal
   if (str1[0] !== str2[0]) {
+    // return false
     return false;
   }
   
   // recursion
-  if (str1[0] === str2[0]) {
-    return compareStr(str1.substring(1, str1.length - 1), str2.substring(1, str2.length - 1));
-  }
+  /* 
+  return the compareStr function call with inputs of str1 and str2 
+  with the previous char at the zero index removed until there is 
+  not a match or there are no more characters in the input strings 
+  to compare 
+  */
+  return compareStr(str1.substring(1), str2.substring(1));
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
