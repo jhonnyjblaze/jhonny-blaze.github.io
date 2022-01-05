@@ -274,6 +274,17 @@ return reverse(string.substring(1)) + string.charAt(0);
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  // assign input string with any white space removed to test
+  let test = string.replace(/[" "]/g,"").toLowerCase();
+  // base case
+  // if test.length equals 1 return true
+  if (test.length === 1) return true;
+  // if zero index of text is not equal to the last index of test return false 
+  if (test[0] !== test[test.length - 1]) return false;
+  
+  // recursion
+  // return palindrome called on test.slice(1, -1)
+  return palindrome(test.slice(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
