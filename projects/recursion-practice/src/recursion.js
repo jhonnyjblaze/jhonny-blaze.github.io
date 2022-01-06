@@ -423,6 +423,8 @@ var buildList = (value, length, output = []) => {
     // push value into output
     output.push(value);
   }
+
+  // recursion 
   // return the buildList function called on input value, input length - 1, and output
   return buildList(value, length - 1, output);
 };
@@ -430,8 +432,26 @@ var buildList = (value, length, output = []) => {
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = (array, value, count = 0) => {
+  // base case
+  // check if input array.length equals 0
+  if (array.length === 0) {
+    // return count
+    return count;
+  } 
+  
+  // recursion
+  // check if the value of the shift method called on the input array 
+  // equals the input value
+  if (array.shift() === value) {    
+    // add 1 to count
+    count += 1;
+  }
+  // return the countOccurrence function called on the input array, 
+  //input value, and count
+  return countOccurrence(array, value, count);
 };
+
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
