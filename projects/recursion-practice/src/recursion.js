@@ -413,7 +413,18 @@ var reverseArr = (array, output = []) => {
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = (value, length, output = []) => {
+  // base case
+  // if length equals 0 return output
+  if (length === 0) {
+    return output;
+    // otherwise
+  } else {
+    // push value into output
+    output.push(value);
+  }
+  // return the buildList function called on input value, input length - 1, and output
+  return buildList(value, length - 1, output);
 };
 
 // 19. Count the occurence of a value inside a list.
