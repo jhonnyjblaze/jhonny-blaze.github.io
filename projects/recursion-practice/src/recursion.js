@@ -374,7 +374,7 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str, output = []){
+var createArray = (str, output = []) => {
   // base case
   // check if the length of input str equals 0
   if (str.length === 0) {
@@ -395,7 +395,19 @@ var createArray = function(str, output = []){
 
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = (array, output = []) => {
+  // base case
+  // check if array.length equals 0
+  if (array.length === 0) {
+    // return output
+    return output;
+    // otherwise
+  } else {
+    // unshift the current zero index element of array into output
+    output.unshift(array.shift());
+  }
+  // return the reverseArr function called on the input array and input output Array
+  return reverseArr(array, output);  
 };
 
 // 18. Create a new array with a given value and length.
