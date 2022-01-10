@@ -587,6 +587,29 @@ var flatten = function(arrays) {
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
 var letterTally = function(str, obj) {
+  // why is arguments not defined if letterTally is written as an arrow function expression 
+  // what is happening here
+  let result = Array.from(arguments)[1] || {};
+    
+  // check if length of input str equals 0
+  if(str.length === 0) {
+    // return result
+    return result;
+  }
+  
+  // check if result does not have key of value at current zero index for input str
+  if(!result[str[0]]) {
+    // set value of 1 to result key named after value at current zero index for input str
+    result[str[0]] = 1;
+    // otherwise
+  } else {
+    // add 1 to the value of the result key named after value at current zero index for input str 
+    result[str[0]] += 1;
+  }
+  
+  // recurison
+  // return function named letterTally called on input str.slice(1) and result
+  return letterTally(str.slice(1), result);
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
