@@ -689,7 +689,29 @@ var alternateSign = (array) => {
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = (str, output = '') => {
+  // assign object with single digit number props and their string version values to variable called nums
+  let nums = { 0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' };
+  
+  // base case
+  // if str lenght equals 0
+  if (str.length === 0) {
+    // return output
+    return output;
+  }
+  
+  // recursion
+  // check if nums.hasOwnProperty(str[0])
+  if (nums.hasOwnProperty(str[0])) {
+    // output += nums[str[0]];
+    output += nums[str[0]];
+    // otherwise
+  } else {
+    // output += str[0];
+    output += str[0];
+  }
+  // return numToText(str.slice(1), output);
+  return numToText(str.slice(1), output);
 };
 
 // *** EXTRA CREDIT ***
