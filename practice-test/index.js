@@ -116,7 +116,7 @@ var contestants = (arr) => arr.length;
     Using the native filter method with our `dogs` array, create an array called `filterSpecies` that will 
     filter out all of the species that are not dogs! 
  */
-var filterSpecies;
+var filterSpecies = dogs.filter(dogs => dogs.species === 'dog');
 
 
 
