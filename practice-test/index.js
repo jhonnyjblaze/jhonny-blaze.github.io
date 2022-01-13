@@ -94,7 +94,7 @@ let dogs = [
     and `time`. Concatanate these values together to form a viable sentence and log it to the console.
     Don't forget the spaces!
  */
-var greeting = function(greeting, location, time) {
+var greeting = (greeting, location, time) => {
     let message = `${greeting} ${location} ${time}`
     console.log(message);
 };
@@ -106,7 +106,7 @@ var greeting = function(greeting, location, time) {
  * 2. We have more contestants than anticipated. (We actually don't have a count!)
     Assign a function to our `contestants` variable that will return the number of entries in our dogs array. 
  */
-var contestants;
+var contestants = (arr) => arr.length;
 
 
 
