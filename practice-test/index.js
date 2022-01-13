@@ -164,7 +164,20 @@ var dogsWithClasses = dogContestants.map((dog) => {
     Using recursion, copy all of the properties into one object and return that object. If you'd like an 
     idea of our data structure, look in the dogData.js file.
  */
-var firstInClass;
+var firstInClass = (arr, obj = {}) => {
+    // base case
+    // check if length of input arr equals 0
+    if (arr.length === 0) {
+      // return obj
+      return obj;
+    }
+
+    // recursion
+    // assign the object key value pairs from arr[0] to obj
+    Object.assign(obj, arr[0]);
+    // return the function called on the input Array slice and the obj
+    return firstInClass(arr.slice(1), obj);
+  };
 
 
 
@@ -173,4 +186,9 @@ var firstInClass;
  * 7. For statistical reasons, lets count all of the votes we recieved for our dog and non-dog contestants!
     Using reduce, find the sum of the votes casted.
  */
-var votes;
+var votes = dogs.reduce((voteTotal, animalObj) => {
+    // add current votes to voteTotal
+    voteTotal += animalObj.votes;
+    // return voteTotal
+    return voteTotal;
+  }, 0);
