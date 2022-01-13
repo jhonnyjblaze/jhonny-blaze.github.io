@@ -96,8 +96,10 @@ let dogs = [
     and `time`. Concatanate these values together to form a viable sentence and log it to the console.
     Don't forget the spaces!
  */
-var greeting = function(greeting, location, time) {
+var greeting = (greeting, location, time) => {
+    // assign message variable to input parameters with a whitespace between each
     let message = `${greeting} ${location} ${time}`;
+    // print message to console
     console.log(message);
 };
 
@@ -108,6 +110,7 @@ var greeting = function(greeting, location, time) {
  * 2. We have more contestants than anticipated. (We actually don't have a count!)
     Assign a function to our `contestants` variable that will return the number of entries in our dogs array. 
  */
+// assign function that returns length of input array to contestants
 var contestants = (arr) => arr.length;
 
 
@@ -118,7 +121,9 @@ var contestants = (arr) => arr.length;
     Using the native filter method with our `dogs` array, create an array called `filterSpecies` that will 
     filter out all of the species that are not dogs! 
  */
-var filterSpecies = dogs.filter(dogs => dogs.species === 'dog');
+// assign filterSpecies variable to the dogs array with the native filter method call
+// check each dog object in the array and return the species property values that equal 'dog'
+var filterSpecies = dogs.filter(dog => dog.species === 'dog');
 
 
 
@@ -139,10 +144,16 @@ var dogContestants = [...filterSpecies];
         - "yellow" if the dog's weight is between 11 and 20.
         - "green" if the dog's weight is 21 or over.
  */
-var dogsWithClasses = dogContestants.map(function(dog) {
+var dogsWithClasses = dogContestants.map((dog) => {
+    // check if dog object weight property is less than or equal to 10
+    // then assign a class property with a value of red
     if (dog.weight <= 10) { dog.class = 'red'; }
+    // check if dog object weight property is less than or equal to 20
+    // then assign a class property with a value of yellow
     else if (dog.weight <= 20) { dog.class = 'yellow'; }
+    // otherwise assign a class property on dog object with a value of green
     else { dog.class = 'green'; }
+    // return the dog object
     return dog;
 });
 
