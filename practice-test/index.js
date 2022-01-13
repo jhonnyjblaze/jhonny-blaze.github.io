@@ -1,3 +1,5 @@
+// const { dog } = require("./dogData");
+
 // const dogs = require('./dogData');
 let dogs = [
     {
@@ -94,8 +96,8 @@ let dogs = [
     and `time`. Concatanate these values together to form a viable sentence and log it to the console.
     Don't forget the spaces!
  */
-var greeting = (greeting, location, time) => {
-    let message = `${greeting} ${location} ${time}`
+var greeting = function(greeting, location, time) {
+    let message = `${greeting} ${location} ${time}`;
     console.log(message);
 };
 
@@ -137,8 +139,12 @@ var dogContestants = [...filterSpecies];
         - "yellow" if the dog's weight is between 11 and 20.
         - "green" if the dog's weight is 21 or over.
  */
-var dogsWithClasses;
-    
+var dogsWithClasses = dogContestants.map(function(dog) {
+    if (dog.weight <= 10) { dog.class = 'red'; }
+    else if (dog.weight <= 20) { dog.class = 'yellow'; }
+    else { dog.class = 'green'; }
+    return dog;
+});
 
 
 // 6.
