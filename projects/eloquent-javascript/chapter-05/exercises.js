@@ -15,8 +15,20 @@ function flatten(arr) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
-
+function loop(value, test, update, body) {
+  //base case
+  // check if the test function called on the current value returns false
+  if(!test(value)) {
+    // return value
+    return value;
+  }
+  
+  // recursion
+  // call the body function on the current value
+  body(value);
+  // return loop function called on the update function with input of value 
+  // to create a new value then start from the beginning
+  return loop(update(value), test, update, body);
 }
 
 // /////////////////////////////////////////////////////////////////////////////
