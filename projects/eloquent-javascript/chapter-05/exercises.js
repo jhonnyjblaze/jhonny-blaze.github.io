@@ -49,9 +49,32 @@ function every(arr, pred) {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(str) {
+  const arr = countBy(str, char => {
+    // get the unicode value for the current charater
+    const unicode = char.charCodeAt();
+    // find the script from the unicode character
+    const script = characterScript(unicode);
+    // check if script is not equal to null
+    if(script !== null) {
+      // return script direction
+      return script.direction;
+      // otherwise
+    } else {
+      // return script
+      return script;
+    }
+  });
 
-}
+  // find the highest count by sorting
+  arr.sort((a, b) => {
+    // return count in descending order
+    return b.count - a.count
+  })
+  // return value of name property at zero index of arr
+  return arr[0].name;
+  };
+
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
