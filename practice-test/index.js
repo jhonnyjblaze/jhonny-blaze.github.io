@@ -123,9 +123,9 @@ var filterSpecies = dogs.filter(dogs => dogs.species === 'dog');
 // 4. 
 /**
  * 4. For safty purposes, let's create a copy of our array. Using the spread operator, assign a copy of our 
- * `filteredSpecies` array to our `dogContestants` variable.
+ * `filterSpecies` array to our `dogContestants` variable.
  */
-var dogContestants;
+var dogContestants = [...filterSpecies];
 
 
 
