@@ -199,22 +199,45 @@ do {
 
 // for statement
 // The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement 
-// (usually a block statement) to be executed in the loop.  A for loop repeats until a specified condition evaluates to false. The JavaScript for loop is 
-// similar to the Java and C for loop.  A for statement looks as follows:
+// (usually a block statement) to be executed in the loop.  A for loop defines a counting variable (start), it then defines a stop condition that does not stop the 
+// looping until it evaluates to false, and finally it also defines how to "update" the counting variable.  The JavaScript for loop is similar to the Java and C for 
+// loop.  A for statement looks as follows:
 
-for ([initialExpression]; [conditionExpression]; [incrementExpression]) {
-  statement
+for ([start]; [stop]; [update]) {
+  statement // (code to run/execute)
+}
+
+/*
+The three statements to for-loop configuration:
+
+1. let index = 0; // start/initialize an index (to 0)
+2. index < names.length; // condition to stop looping
+3. index++ // update/increment the index by 1 each loop
+
+These statements all go within parentheses and are seperated by a semi colon (;).
+*/
+
+for (let index = 0; index < names.length; index++) {
+  console.log(index);
+  console.log(names[index].toUpperCase());
+}
+
+// reverse looping over array //
+
+for (let index = names.length - 1; index > -1 ; index--) {
+  console.log(index);
+  console.log(names[index].toUpperCase());
 }
 
 /*
 When a for loop executes, the following occurs:
 
-1.  The initializing expression initialExpression, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an 
+1.  The start expression, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an 
     expression of any degree of complexity. This expression can also declare variables.
-2.  The conditionExpression expression is evaluated. If the value of conditionExpression is true, the loop statements execute. If the value of condition is false, 
-    the for loop terminates. (If the condition expression is omitted entirely, the condition is assumed to be true.)
+2.  The stop expression is evaluated. If the value of stop is true, the loop statements execute. If the value of stop is false, 
+    the for loop terminates. (If the stop condition is omitted entirely, the value is assumed to be true.)
 3.  The statement executes. To execute multiple statements, use a block statement ({ ... }) to group those statements.
-4.  If present, the update expression incrementExpression is executed.
+4.  If present, the update expression is executed.
 5.  Control returns to Step 2.
 */
 
